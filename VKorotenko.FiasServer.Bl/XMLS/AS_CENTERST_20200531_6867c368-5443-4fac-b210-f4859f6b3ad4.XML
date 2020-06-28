@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CenterStatuses>
+  <CenterStatus CENTERSTID="0" NAME="Объект не является центром административно-территориального образования" />
+  <CenterStatus CENTERSTID="1" NAME="Объект является центром района" />
+  <CenterStatus CENTERSTID="2" NAME="Объект является центром (столицей) региона" />
+  <CenterStatus CENTERSTID="3" NAME="Объект является одновременно и центром района и центром региона" />
+  <CenterStatus CENTERSTID="4" NAME="Центральный район, т.е. район, в котором находится центр региона (только для объектов 2-го уровня)" />
+</CenterStatuses>

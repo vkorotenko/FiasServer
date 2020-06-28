@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OperationStatuses>
+  <OperationStatus OPERSTATID="0" NAME="Не определено" />
+  <OperationStatus OPERSTATID="1" NAME="Инициация" />
+  <OperationStatus OPERSTATID="10" NAME="Добавление" />
+  <OperationStatus OPERSTATID="20" NAME="Изменение" />
+  <OperationStatus OPERSTATID="21" NAME="Групповое изменение" />
+  <OperationStatus OPERSTATID="23" NAME="Редактирование протяжённых объектов" />
+  <OperationStatus OPERSTATID="24" NAME="Групповое редактирование объектов" />
+  <OperationStatus OPERSTATID="30" NAME="Удаление" />
+  <OperationStatus OPERSTATID="31" NAME="Удаление вследствие удаления вышестоящего объекта" />
+  <OperationStatus OPERSTATID="40" NAME="Присоединение адресного объекта (слияние)" />
+  <OperationStatus OPERSTATID="41" NAME="Переподчинение вследствие слияния вышестоящего объ" />
+  <OperationStatus OPERSTATID="42" NAME="Прекращение существования вследствие присоединения" />
+  <OperationStatus OPERSTATID="43" NAME="Создание нового адресного объекта в результате сли" />
+  <OperationStatus OPERSTATID="50" NAME="Переподчинение" />
+  <OperationStatus OPERSTATID="51" NAME="Переподчинение вследствие переподчинения вышестоящ" />
+  <OperationStatus OPERSTATID="52" NAME="Прекращение существования вследствие переподчинени" />
+  <OperationStatus OPERSTATID="53" NAME="Переподчинение вследствие изм.состава род.объектов" />
+  <OperationStatus OPERSTATID="60" NAME="Прекращение существования вследствие дробления" />
+  <OperationStatus OPERSTATID="61" NAME="Создание нового адресного объекта в результате дро" />
+  <OperationStatus OPERSTATID="70" NAME="Восстановление прекратившего существование объекта" />
+</OperationStatuses>

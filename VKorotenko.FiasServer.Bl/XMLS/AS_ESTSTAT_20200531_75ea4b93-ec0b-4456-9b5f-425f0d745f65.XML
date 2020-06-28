@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EstateStatuses>
+  <EstateStatus ESTSTATID="0" NAME="Не определено" SHORTNAME="Не определено" />
+  <EstateStatus ESTSTATID="1" NAME="Владение" SHORTNAME="влд." />
+  <EstateStatus ESTSTATID="2" NAME="Дом" SHORTNAME="д." />
+  <EstateStatus ESTSTATID="3" NAME="Домовладение" SHORTNAME="двлд." />
+  <EstateStatus ESTSTATID="4" NAME="Гараж" SHORTNAME="г-ж" />
+  <EstateStatus ESTSTATID="5" NAME="Здание" SHORTNAME="зд." />
+  <EstateStatus ESTSTATID="6" NAME="Шахта" SHORTNAME="шахта" />
+  <EstateStatus ESTSTATID="7" NAME="Подвал" SHORTNAME="подв." />
+  <EstateStatus ESTSTATID="8" NAME="Котельная" SHORTNAME="кот." />
+  <EstateStatus ESTSTATID="9" NAME="Погреб" SHORTNAME="пб." />
+  <EstateStatus ESTSTATID="10" NAME="Объект нез-го стр-ва" SHORTNAME="ОНС" />
+</EstateStatuses>

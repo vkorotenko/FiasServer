@@ -1,0 +1,8 @@
+﻿<?xml version="1.0"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FullPath>v:\FIAS\data\fias.zip</FullPath>
+  <ConnectionString />
+  <DbBackEnd>MSSQL</DbBackEnd>
+  <Override>true</Override>
+  <Swap>false</Swap>
+</Config>

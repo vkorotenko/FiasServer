@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Downloader": {
+      "commandName": "Project",
+      "commandLineArgs": "-c test.xml"
+    }
+  }
+}

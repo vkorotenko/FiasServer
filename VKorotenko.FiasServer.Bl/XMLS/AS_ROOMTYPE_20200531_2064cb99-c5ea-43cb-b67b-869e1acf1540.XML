@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RoomTypes>
+  <RoomType RMTYPEID="0" NAME="Не определено" SHORTNAME="Не определено" />
+  <RoomType RMTYPEID="1" NAME="Комната" SHORTNAME="Комната" />
+  <RoomType RMTYPEID="2" NAME="Помещение" SHORTNAME="Помещение" />
+</RoomTypes>

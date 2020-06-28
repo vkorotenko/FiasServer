@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Product>Fias server</Product>
+    <Version>0.2.0</Version>
+    <Authors>Vladimir N Korotenko</Authors>
+    <Description>Fias server package</Description>
+    <Company>ISV Korotenko</Company>
+    <PackageProjectUrl>https://vkorotenko.ru/fias</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="XMLS\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VKorotenko.Poco\VKorotenko.Poco.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Configurations>Debug;Release;Release-no-self</Configurations>
+    <RuntimeIdentifiers>win10-x64;linux-x64</RuntimeIdentifiers>  
+    <Platforms>AnyCPU</Platforms>
+    <RootNamespace>FiasDl</RootNamespace>
+    <Version>0.2.0</Version>
+    <Authors>Vladimir N Korotenko</Authors>
+    <Description>Fias server package</Description>
+    <Company>ISV Korotenko</Company>
+    <PackageProjectUrl>https://vkorotenko.ru/fias</PackageProjectUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-no-self|AnyCPU'">
+    <SelfContained>False</SelfContained>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <SelfContained>False</SelfContained>
+    <PlatformTarget>x64</PlatformTarget>
+    <RuntimeIdentifie>win10-x64</RuntimeIdentifie>  
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="test.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VKorotenko.FiasServer.Bl\VKorotenko.FiasServer.Bl.csproj" />
+    <ProjectReference Include="..\VKorotenko.Poco\VKorotenko.Poco.csproj" />
+  </ItemGroup>
+</Project>
