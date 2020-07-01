@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Vladimir N. Korotenko</Authors>
+    <Company>ISV Vladimir N. Korotenko</Company>
+    <Product>Part of FiasServer</Product>
+    <PackageProjectUrl>https://vkorotenko.ru/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vkorotenko/FiasServer</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>0.2.0</Version>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +20,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VKorotenko.FiasServer.Bl\VKorotenko.FiasServer.Bl.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

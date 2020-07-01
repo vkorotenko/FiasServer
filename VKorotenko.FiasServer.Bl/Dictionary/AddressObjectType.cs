@@ -29,11 +29,5 @@ namespace VKorotenko.FiasServer.Bl.Dictionary
         [XmlAttribute(AttributeName = "LEVEL")]
         public short Level { get; set; }
 
-        public override bool Equals(object obj)
-        {
-            var q = obj as AddressObjectType;
-            if (q == null) return false;
-            return this.KodTSt == q.KodTSt;
-        }
     }
 }

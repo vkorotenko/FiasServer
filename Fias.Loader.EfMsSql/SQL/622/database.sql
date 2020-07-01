@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [FIAS_622]    Script Date: 28.06.2020 12:50:53 ******/
+/****** Object:  Database [FIAS_622]    Script Date: 01.07.2020 10:18:07 ******/
 CREATE DATABASE [FIAS_622]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -99,7 +99,7 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES =
 GO
 USE [FIAS_622]
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -113,7 +113,7 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ACTSTAT]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[ACTSTAT]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -127,7 +127,7 @@ CREATE TABLE [dbo].[ACTSTAT](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ADDROBJ]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[ADDROBJ]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -170,10 +170,14 @@ CREATE TABLE [dbo].[ADDROBJ](
 	[ENDDATE] [date] NOT NULL,
 	[NORMDOC] [uniqueidentifier] NULL,
 	[LIVESTATUS] [tinyint] NOT NULL,
-	[DIVTYPE] [int] NOT NULL
+	[DIVTYPE] [int] NOT NULL,
+ CONSTRAINT [PK_ADDROBJ] PRIMARY KEY CLUSTERED 
+(
+	[AOID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CENTERST]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[CENTERST]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,7 +191,7 @@ CREATE TABLE [dbo].[CENTERST](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CURENTST]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[CURENTST]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -201,7 +205,7 @@ CREATE TABLE [dbo].[CURENTST](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ESTSTAT]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[ESTSTAT]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -216,7 +220,7 @@ CREATE TABLE [dbo].[ESTSTAT](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FLATTYPE]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[FLATTYPE]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -231,7 +235,7 @@ CREATE TABLE [dbo].[FLATTYPE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HOUSE]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[HOUSE]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -263,7 +267,7 @@ CREATE TABLE [dbo].[HOUSE](
 	[BUILDNUM_IX] [smallint] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HOUSE_BUILDNUM]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[HOUSE_BUILDNUM]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -277,7 +281,7 @@ CREATE TABLE [dbo].[HOUSE_BUILDNUM](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HOUSE_HOUSENUM]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[HOUSE_HOUSENUM]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -291,7 +295,7 @@ CREATE TABLE [dbo].[HOUSE_HOUSENUM](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HOUSEINT]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[HOUSEINT]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -317,7 +321,7 @@ CREATE TABLE [dbo].[HOUSEINT](
 	[POSTALCODE] [nvarchar](6) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[HSTSTAT]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[HSTSTAT]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -331,7 +335,7 @@ CREATE TABLE [dbo].[HSTSTAT](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[INTVSTAT]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[INTVSTAT]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -345,7 +349,7 @@ CREATE TABLE [dbo].[INTVSTAT](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LANDMARK]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[LANDMARK]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -368,7 +372,7 @@ CREATE TABLE [dbo].[LANDMARK](
 	[NORMDOC] [uniqueidentifier] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NDOCTYPE]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[NDOCTYPE]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -382,7 +386,7 @@ CREATE TABLE [dbo].[NDOCTYPE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NORMDOC]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[NORMDOC]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -400,7 +404,7 @@ CREATE TABLE [dbo].[NORMDOC](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OPERSTAT]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[OPERSTAT]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -414,7 +418,7 @@ CREATE TABLE [dbo].[OPERSTAT](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ROOM]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[ROOM]    Script Date: 01.07.2020 10:18:07 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -441,7 +445,7 @@ CREATE TABLE [dbo].[ROOM](
 	[ROOMCADNUM] [nvarchar](100) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ROOMTYPE]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[ROOMTYPE]    Script Date: 01.07.2020 10:18:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -456,7 +460,7 @@ CREATE TABLE [dbo].[ROOMTYPE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SOCRBASE]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[SOCRBASE]    Script Date: 01.07.2020 10:18:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -472,7 +476,7 @@ CREATE TABLE [dbo].[SOCRBASE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[STEAD]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[STEAD]    Script Date: 01.07.2020 10:18:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -502,7 +506,7 @@ CREATE TABLE [dbo].[STEAD](
 	[DIVTYPE] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[STRSTAT]    Script Date: 28.06.2020 12:50:54 ******/
+/****** Object:  Table [dbo].[STRSTAT]    Script Date: 01.07.2020 10:18:08 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

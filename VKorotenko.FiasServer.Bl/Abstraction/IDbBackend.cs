@@ -1,4 +1,14 @@
-﻿using VKorotenko.FiasServer.Bl.Dictionary;
+﻿#region License
+// // Разработано: Коротенко Владимиром Николаевичем (Vladimir N. Korotenko)
+// // email: koroten@ya.ru
+// // skype:vladimir-korotenko
+// // https://vkorotenko.ru
+// // Создано:  01.07.2020 9:05
+#endregion
+
+using System;
+using VKorotenko.FiasServer.Bl.Data;
+using VKorotenko.FiasServer.Bl.Dictionary;
 
 namespace VKorotenko.FiasServer.Bl.Abstraction
 {
@@ -16,6 +26,10 @@ namespace VKorotenko.FiasServer.Bl.Abstraction
         void Insert(OperationStatus[] types);
         void Insert(RoomType[] types);
         void Insert(StructureStatus[] types); 
+        #endregion
+
+        #region Данные
+        IRepository<AddressObject,Guid> AddressRepository { get; }
         #endregion
     }
 }

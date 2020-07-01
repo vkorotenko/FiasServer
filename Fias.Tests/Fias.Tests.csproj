@@ -17,4 +17,13 @@
     <ProjectReference Include="..\VKorotenko.FiasServer.Bl\VKorotenko.FiasServer.Bl.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Xml\address.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Xml\anorm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

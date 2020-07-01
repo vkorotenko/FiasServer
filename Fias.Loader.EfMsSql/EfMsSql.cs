@@ -1,8 +1,17 @@
-﻿using System.Collections.Generic;
+﻿#region License
+// // Разработано: Коротенко Владимиром Николаевичем (Vladimir N. Korotenko)
+// // email: koroten@ya.ru
+// // skype:vladimir-korotenko
+// // https://vkorotenko.ru
+// // Создано:  01.07.2020 10:09
+#endregion
+
 using Fias.Loader.EfMsSql.Entities;
+using Fias.Loader.EfMsSql.Repositories;
+using System;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using VKorotenko.FiasServer.Bl.Abstraction;
+using VKorotenko.FiasServer.Bl.Data;
 using VKorotenko.FiasServer.Bl.Dictionary;
 
 namespace Fias.Loader.EfMsSql
@@ -13,8 +22,10 @@ namespace Fias.Loader.EfMsSql
         public void Init(string connectionString)
         {
             _ctx = new DataContext(connectionString);
+            AddressRepository = new AddressRepository(_ctx);
         }
 
+        #region Словари
         public void Insert(ActualStatus[] status)
         {
             _ctx.ActualStatuses.BulkMerge(status.Select(DbActualStatus.Get));
@@ -25,7 +36,7 @@ namespace Fias.Loader.EfMsSql
             var unique = types.Select(a => a)
                 .GroupBy(a => a.KodTSt)
                 .Select(g => g.First()).ToList();
-            _ctx.AddressObjectTypes.BulkMerge(unique.Select(DbAddressObjectType.Get), 
+            _ctx.AddressObjectTypes.BulkMerge(unique.Select(DbAddressObjectType.Get),
                 options => options.ColumnPrimaryKeyExpression = c => c.KodTSt);
         }
 
@@ -62,12 +73,15 @@ namespace Fias.Loader.EfMsSql
         public void Insert(RoomType[] types)
         {
             _ctx.RoomTypes.BulkMerge(types.Select(DbRoomType.Get));
-            
+
         }
 
         public void Insert(StructureStatus[] types)
         {
             _ctx.StructureStatuses.BulkMerge(types.Select(DbStructureStatus.Get));
-        }
+        } 
+        #endregion
+
+        public IRepository<AddressObject, Guid> AddressRepository { get; private set; }
     }
 }

@@ -8,7 +8,6 @@
 
 using System;
 using System.IO.Compression;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using VKorotenko.FiasServer.Bl.Dictionary;
 using VKorotenko.FiasServer.Bl.Loggers;
@@ -21,7 +20,7 @@ namespace VKorotenko.FiasServer.Bl
         public Config Config { get; private set; }
         public readonly DictResult Result = new DictResult();
         private ILogger _logger = new DebugLogger();
-        
+
         public FileProcessor(Config config, ILogger logger = null)
         {
             Config = config;
@@ -32,16 +31,7 @@ namespace VKorotenko.FiasServer.Bl
         {
             using var archive = ZipFile.OpenRead(Config.FullPath);
             FillInDictionaries(archive);
-            FillInData(archive);
-        }
-
-        private void FillInData(ZipArchive archive)
-        {
-            //second pass parse
-            foreach (var entry in archive.Entries)
-            {
-
-            }
+           
         }
         private void FillInDictionaries(ZipArchive archive)
         {

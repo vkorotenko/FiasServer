@@ -37,5 +37,6 @@ namespace Fias.Loader.EfMsSql
 
         public DbSet<DbRoomType> RoomTypes { get; set; }
         public DbSet<DbStructureStatus> StructureStatuses { get; set; }
+        public DbSet<DbAddressObject> AddressObjects { get; set; }
     }
 }
