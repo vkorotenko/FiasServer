@@ -11,32 +11,37 @@ using System.IO.Compression;
 using System.Xml.Serialization;
 using VKorotenko.FiasServer.Bl.Dictionary;
 using VKorotenko.FiasServer.Bl.Loggers;
-using VKorotenko.Poco;
 
 namespace VKorotenko.FiasServer.Bl
 {
+    /// <summary>
+    /// Обработчик словарей. 
+    /// </summary>
     public class FileProcessor
     {
-        public Config Config { get; private set; }
+        private readonly string _fullPath;
+        private readonly ILogger _logger = new DebugLogger();
+        /// <summary>
+        /// Результаты обработки словарей
+        /// </summary>
         public readonly DictResult Result = new DictResult();
-        private ILogger _logger = new DebugLogger();
-
-        public FileProcessor(Config config, ILogger logger = null)
+        public FileProcessor(string fiasZipPath, ILogger logger = null)
         {
-            Config = config;
+            _fullPath = fiasZipPath;
             if (logger != null) _logger = logger;
         }
-
+        /// <summary>
+        /// Запуск обработки
+        /// </summary>
         public void Run()
         {
-            using var archive = ZipFile.OpenRead(Config.FullPath);
+            using var archive = ZipFile.OpenRead(_fullPath);
             FillInDictionaries(archive);
            
         }
         private void FillInDictionaries(ZipArchive archive)
         {
             _logger.LogMessage($"Start fill in dictionary: {DateTime.Now}");
-            //First pass fuel dictionary
             foreach (var entry in archive.Entries)
             {
                 if (entry.FullName.StartsWith(ActualStatus.Start, StringComparison.OrdinalIgnoreCase))
@@ -111,7 +116,6 @@ namespace VKorotenko.FiasServer.Bl
                     Result.StructureStatuses = (StructureStatus[])formatter.Deserialize(str);
                 }
             }
-
             _logger.LogMessage($"End fill in dictionary: {DateTime.Now}");
         }
     }

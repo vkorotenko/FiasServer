@@ -12,55 +12,10 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 using VKorotenko.FiasServer.Bl.Data;
+using VKorotenko.FiasServer.Bl.Extensions;
 
 namespace VKorotenko.FiasServer.Bl.PureData
 {
-
-    public sealed class AddressTag{
-        #region Константы
-
-        public const string AOGUID = "AOGUID";
-        public const string FORMALNAME = "FORMALNAME";
-        public const string REGIONCODE = "REGIONCODE";
-        public const string AUTOCODE = "AUTOCODE";
-        public const string AREACODE = "AREACODE";
-        public const string CITYCODE = "CITYCODE";
-        public const string CTARCODE = "CTARCODE";
-        public const string PLACECODE = "PLACECODE";
-        public const string PLANCODE = "PLANCODE";
-        public const string STREETCODE = "STREETCODE";
-        public const string EXTRCODE = "EXTRCODE";
-        public const string SEXTCODE = "SEXTCODE";
-        public const string OFFNAME = "OFFNAME";
-        public const string POSTALCODE = "POSTALCODE";
-        public const string IFNSFL = "IFNSFL";
-        public const string TERRIFNSFL = "TERRIFNSFL";
-        public const string IFNSUL = "IFNSUL";
-        public const string TERRIFNSUL = "TERRIFNSUL";
-        public const string OKATO = "OKATO";
-        public const string OKTMO = "OKTMO";
-        public const string UPDATEDATE = "UPDATEDATE";
-        public const string SHORTNAME = "SHORTNAME";
-        public const string SHORTNAMEID = "SHORTNAMEID";
-        public const string AOLEVEL = "AOLEVEL";
-        public const string PARENTGUID = "PARENTGUID";
-        public const string AOID = "AOID";
-        public const string PREVID = "PREVID";
-        public const string NEXTID = "NEXTID";
-        public const string CODE = "CODE";
-        public const string PLAINCODE = "PLAINCODE";
-        public const string ACTSTATUS = "ACTSTATUS";
-        public const string CENTSTATUS = "CENTSTATUS";
-        public const string OPERSTATUS = "OPERSTATUS";
-        public const string CURRSTATUS = "CURRSTATUS";
-        public const string STARTDATE = "STARTDATE";
-        public const string ENDDATE = "ENDDATE";
-        public const string NORMDOC = "NORMDOC";
-        public const string LIVESTATUS = "LIVESTATUS";
-        public const string DIVTYPE = "DIVTYPE";
-
-        #endregion
-    }
     [Serializable]
     [XmlType(ContainerTag)]
     public class XmlAddressObject
@@ -201,66 +156,42 @@ namespace VKorotenko.FiasServer.Bl.PureData
                 AutoCode = a.AutoCode,
                 CentStatus = a.CentStatus,
                 CityCode = a.CityCode,
-                Code = TryGetLong(a.Code),
+                Code = a.Code.ToNullLong(),
                 CtarCode = a.CtarCode,
-                CurrStatus =  TryConv( a.CurrStatus),
+                CurrStatus =  a.CurrStatus.GetCurStatus(),
                 DivType = a.DivType,
                 EndDate = a.EndDate,
                 ExtrCode = a.ExtrCode,
                 FormalName = a.FormalName,
-                IFNSFL = TryGetInt(a.IFNSFL),
-                IFNSUL = TryGetInt(a.IFNSUL),
+                IFNSFL = a.IFNSFL.ToNullInt(),
+                IFNSUL = a.IFNSUL.ToNullInt(),
                 LiveStatus = a.LiveStatus,
-                NORMDOC = TryGetGuid(a.NORMDOC),
-                NextId = TryGetGuid(a.NextId),
-                OKATO =  TryGetLong(a.OKATO),
-                OKTMO = TryGetLong(a.OKTMO),
+                NORMDOC = a.NORMDOC.ToNullGuid(),
+                NextId = a.NextId.ToNullGuid(),
+                OKATO =  a.OKATO.ToNullLong(),
+                OKTMO = a.OKTMO.ToNullLong(),
                 OffName = a.OffName,
                 OperStatus = a.OperStatus,
-                ParentGuid = TryGetGuid(a.ParentGuid),
+                ParentGuid = a.ParentGuid.ToNullGuid(),
                 PlaceCode = a.PlaceCode,
-                PlainCode = TryGetLong(a.PlainCode),
+                PlainCode = a.PlainCode.ToNullLong(),
                 PlanCode = a.PlanCode,
-                PostalCode = TryGetInt(a.PostalCode),
-                PrevId = TryGetGuid(a.PrevId),
+                PostalCode = a.PostalCode.ToNullInt(),
+                PrevId = a.PrevId.ToNullGuid(),
                 RegionCode = a.RegionCode,
                 SHORTNAME = a.SHORTNAME,
                 SextCode = a.SextCode,
                 StartDate = a.StartDate,
                 StreetCode = a.StreetCode,
-                TERRIFNSFL = TryGetInt(a.TERRIFNSFL),
-                TERRIFNSUL = TryGetInt(a.TERRIFNSUL),
+                TERRIFNSFL = a.TERRIFNSFL.ToNullInt(),
+                TERRIFNSUL = a.TERRIFNSUL.ToNullInt(),
                 UpdateDate = a.UpdateDate
             };
 
             return r;
 
         }
-
-        private static byte TryConv(string conv)
-        {
-            byte r = 0;
-            if (byte.TryParse(conv, out var n)) r = n;
-            return r;
-        } 
-        private static long? TryGetLong(string aCode)
-        {
-            long? r = null;
-            if (long.TryParse(aCode, out var n)) r = n;
-            return r;
-        }
-        private static int? TryGetInt(string aCode)
-        {
-            int? r = null;
-            if (int.TryParse(aCode, out var n)) r = n;
-            return r;
-        }
-        private static Guid? TryGetGuid(string aCode)
-        {
-            Guid? r = null;
-            if (Guid.TryParse(aCode, out var n)) r = n;
-            return r;
-        }
+        
         public void LoadXml(string source)
         {
             var serializer = new XmlSerializer(GetType());
@@ -272,8 +203,5 @@ namespace VKorotenko.FiasServer.Bl.PureData
                 if (p2 != null && p2.CanWrite) p2.SetValue(this, p.GetValue(obj, null), null);
             }
         }
-
     }
-
-   
 }

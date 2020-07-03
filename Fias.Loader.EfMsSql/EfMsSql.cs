@@ -23,6 +23,7 @@ namespace Fias.Loader.EfMsSql
         {
             _ctx = new DataContext(connectionString);
             AddressRepository = new AddressRepository(_ctx);
+            NormativeDocument = new NormativeDocumentRepository(_ctx);
         }
 
         #region Словари
@@ -83,5 +84,6 @@ namespace Fias.Loader.EfMsSql
         #endregion
 
         public IRepository<AddressObject, Guid> AddressRepository { get; private set; }
+        public IRepository<NormativeDocument, Guid> NormativeDocument { get; private set; }
     }
 }

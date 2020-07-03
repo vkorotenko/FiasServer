@@ -8,6 +8,7 @@
 
 using Fias.Loader.EfMsSql.Entities;
 using VKorotenko.FiasServer.Bl.Data;
+using VKorotenko.FiasServer.Bl.Extensions;
 
 namespace Fias.Loader.EfMsSql.Extensions
 {
@@ -55,6 +56,23 @@ namespace Fias.Loader.EfMsSql.Extensions
                 TERRIFNSFL = a.TERRIFNSFL,
                 SHORTNAMEID = a.SHORTNAMEID,
                 TERRIFNSUL = a.TERRIFNSUL
+            };
+        }
+
+        public static DbNormativeDocument Get(this NormativeDocument d)
+        {
+            if (d.DocNum?.Length > 200) 
+#pragma warning disable 642
+                ; // ловим превышение длины
+#pragma warning restore 642
+            return  new DbNormativeDocument
+            {
+                DocDate = d.DocDate.ToNullDateTime(),
+                DocImgId = d.DocImgId.ToNullGuid(),
+                DocName = d.DocName,
+                DocNum = d.DocNum,
+                DocType = d.DocNum.ToNullShort(),
+                NormDocId = d.NormDocId
             };
         }
     }

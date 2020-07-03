@@ -8,6 +8,7 @@
 
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -115,7 +116,7 @@ namespace Fias.Tests
                                     }
                                     catch (Exception e)
                                     {
-                                        //Debug.WriteLine(xml);
+                                        Debug.WriteLine(e.Message);
                                     }
                                 }
                                 break;

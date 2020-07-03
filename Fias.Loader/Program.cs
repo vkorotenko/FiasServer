@@ -16,6 +16,9 @@ using System.Threading.Tasks;
 
 namespace Fias.Loader
 {
+    /// <summary>
+    /// Главный файл приложения, регистрирует сервисы и прочее.
+    /// </summary>
     public static class Program
     {
         private static IServiceProvider _serviceProvider;

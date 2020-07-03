@@ -13,10 +13,22 @@ namespace Fias.Loader.Configuration
     /// </summary>
     public class AppConfig
     {
-        public string AppName { get; set; }
+        /// <summary>
+        /// Строка соединения
+        /// </summary>
         public string FiasConnection { get; set; }
+        /// <summary>
+        /// Движок базы данных
+        /// </summary>
         public string DbBack { get; set; }
+        /// <summary>
+        /// Путь к архиву загруженной базы ФИАС
+        /// </summary>
         public string FullPath { get; set; }
+        /// <summary>
+        /// Обрабатываемые таблицы при загрузке. 
+        /// </summary>
+        public string[] ProcessTables { get; set; }
     }
 
 }

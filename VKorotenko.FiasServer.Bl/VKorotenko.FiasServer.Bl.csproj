@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="XMLS\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\VKorotenko.Poco\VKorotenko.Poco.csproj" />
   </ItemGroup>
 

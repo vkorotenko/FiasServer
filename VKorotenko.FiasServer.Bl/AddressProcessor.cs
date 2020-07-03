@@ -15,27 +15,42 @@ using System.Text;
 using System.Xml;
 using VKorotenko.FiasServer.Bl.Data;
 using VKorotenko.FiasServer.Bl.PureData;
-using VKorotenko.Poco;
 
 namespace VKorotenko.FiasServer.Bl
 {
+    /// <summary>
+    /// Делегат завершения обработки
+    /// </summary>
+    /// <param name="sender">Отправитель</param>
+    /// <param name="args">Аргумент</param>
     public delegate void Complete(object sender, EventArgs args);
-
+    /// <summary>
+    /// Делегат обработки адреса
+    /// </summary>
+    /// <param name="sender">Отправитель</param>
+    /// <param name="args">Параметры</param>
     public delegate void AddressParsed(object sender, AddressProcessorEventArgs args);
+    
+    /// <summary>
+    /// Процессор адресов.
+    /// </summary>
     public class AddressProcessor
     {
-        public Config Config { get; private set; }
-        public AddressProcessor(Config config)
-        {
-            Config = config;
-        }
-
-        private long _count = 0;
+        private readonly string _fullPath;
+        private long _count;
         private long _take;
+        public AddressProcessor(string pathToZip)
+        {
+            _fullPath = pathToZip;
+        }
+        /// <summary>
+        /// Запуск обработки файла
+        /// </summary>
+        /// <param name="take">Количество обрабатываемых адресов</param>
         public void Run(long take = long.MaxValue)
         {
             _take = take;
-            using var archive = ZipFile.OpenRead(Config.FullPath);
+            using var archive = ZipFile.OpenRead(_fullPath);
             foreach (var entry in archive.Entries)
             {
                 if (entry.Name.ToUpperInvariant().StartsWith(XmlAddressObject.Start.ToUpperInvariant()))
@@ -96,27 +111,39 @@ namespace VKorotenko.FiasServer.Bl
             xml.Append($"<{reader.Name} ");
             while (reader.MoveToNextAttribute())
             {
-                if (reader.Value.Contains(""))
-                {
-                    var quoted = reader.Value.Replace("\"", "&quot;"); 
-                    xml.Append($"{reader.Name}=\"{quoted}\" ");
-                }
-                else
-                    xml.Append($"{reader.Name}=\"{reader.Value}\" ");
+                var quoted = reader.Value.Replace("\"", "&quot;");
+                quoted = quoted.Replace("'", "&apos;");
+                quoted = quoted.Replace("<", "&lt;");
+                quoted = quoted.Replace(">", "&gt;");
+                quoted = quoted.Replace("&", "&amp;");
+                xml.Append($"{reader.Name}=\"{quoted}\" ");
             }
             xml.Append(" />");
             var result = xml.ToString();
             return result;
         }
-
+        /// <summary>
+        /// Событие обработки адреса.
+        /// </summary>
         public event AddressParsed AddressParsed;
+        /// <summary>
+        /// Обработчик добавления адреса.
+        /// </summary>
+        /// <param name="s">Отправитель</param>
+        /// <param name="address">Обработанный адрес</param>
         protected virtual void OnAddressParsed(object s, AddressObject address)
         {
             AddressParsed?.Invoke(s, new AddressProcessorEventArgs(address, _count));
         }
-
+        /// <summary>
+        /// Событие завершения обработки.
+        /// </summary>
         public event Complete Complete;
-        protected virtual void OnComplete(Object s)
+        /// <summary>
+        /// Обработчик конца обработки файла.
+        /// </summary>
+        /// <param name="s">Отправитель</param>
+        protected virtual void OnComplete(object s)
         {
             Complete?.Invoke(s, new EventArgs());
         }

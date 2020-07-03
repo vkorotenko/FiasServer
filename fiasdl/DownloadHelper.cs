@@ -43,7 +43,7 @@ namespace FiasDl
             {
                 if (!File.Exists(Config)) throw new ArgumentException($"No config file: {Config}");
                 var cfg = VKorotenko.Poco.Config.Load(Config);
-                var proc = new FileProcessor(cfg);
+                var proc = new FileProcessor(cfg.FullPath);
                 proc.Run();
                 return 1;
 
