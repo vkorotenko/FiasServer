@@ -25,6 +25,11 @@ namespace VKorotenko.FiasServer.Bl
         /// Результаты обработки словарей
         /// </summary>
         public readonly DictResult Result = new DictResult();
+        /// <summary>
+        /// Обработчик словарей
+        /// </summary>
+        /// <param name="fiasZipPath">Полный путь к архиву ФИАС</param>
+        /// <param name="logger"></param>
         public FileProcessor(string fiasZipPath, ILogger logger = null)
         {
             _fullPath = fiasZipPath;

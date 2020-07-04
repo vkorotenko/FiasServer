@@ -16,17 +16,47 @@ using VKorotenko.FiasServer.Bl.Loggers;
 
 namespace FiasDl
 {
+    /// <summary>
+    /// Вспомогательный класс для закачки данных
+    /// </summary>
     public class DownloadHelper
     {
+        /// <summary>
+        /// Показать список версий
+        /// </summary>
         public bool IsListVersions { get; set; }
+        /// <summary>
+        /// Скачивать XML версию
+        /// </summary>
         public bool IsXml { get; set; }
+        /// <summary>
+        /// Версия файла
+        /// </summary>
         public int Version { get; set; } = -1;
+        /// <summary>
+        /// Список доступных версий
+        /// </summary>
         public DownloadFileInfo[] VersionInfo { get; set; }
+        /// <summary>
+        /// Базовая директория для скачивания
+        /// </summary>
         public string BaseDir { get; set; } = "fias";
+        /// <summary>
+        /// Скачивать ли полную версию
+        /// </summary>
         public bool IsFull { get; set; }
+        /// <summary>
+        /// Конфигурационный файл
+        /// </summary>
         public string Config { get; set; }
+        /// <summary>
+        /// Есть ли конфигурационный файл
+        /// </summary>
         public bool HasConfig { get; set; }
-
+        /// <summary>
+        /// Запуск скачивания
+        /// </summary>
+        /// <returns></returns>
         public int Run()
         {
             if (IsListVersions)

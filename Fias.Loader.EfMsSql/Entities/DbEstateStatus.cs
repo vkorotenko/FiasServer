@@ -14,15 +14,32 @@ using VKorotenko.FiasServer.Bl.Dictionary;
 
 namespace Fias.Loader.EfMsSql.Entities
 {
+    /// <summary>
+    /// ESTSTAT
+    /// </summary>
     [Table("ESTSTAT")]
     public class DbEstateStatus
     {
+        /// <summary>
+        /// Ключ
+        /// </summary>
         [Column("ESTSTATID"),Key]
         public byte EststatId { get; set; }
+        /// <summary>
+        /// Имя
+        /// </summary>
         [Column( "NAME"),MaxLength(20)]
         public string Name { get; set; }
+        /// <summary>
+        /// Сокращение
+        /// </summary>
         [Column("SHORTNAME"), MaxLength(20)]
         public string ShortName { get; set; }
+        /// <summary>
+        /// Получение из XML
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <returns></returns>
         public static DbEstateStatus Get(EstateStatus arg)
         {
             return new DbEstateStatus()

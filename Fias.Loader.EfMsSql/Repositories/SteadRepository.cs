@@ -15,19 +15,32 @@ using VKorotenko.FiasServer.Bl.Data;
 
 namespace Fias.Loader.EfMsSql.Repositories
 {
+    /// <summary>
+    /// Репозиторий SteadRepository
+    /// </summary>
     public class SteadRepository : IRepository<Stead, Guid>
     {
         private readonly DataContext _ctx;
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="ctx">Контекст БД</param>
         public SteadRepository(DataContext ctx)
         {
             _ctx = ctx;
         }
-
+        /// <summary>
+        /// Добавление
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(Stead item)
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Добавление списка элементов
+        /// </summary>
+        /// <param name="items"></param>
         public void AddRange(IEnumerable<Stead> items)
         {
             try
@@ -36,35 +49,32 @@ namespace Fias.Loader.EfMsSql.Repositories
             }
             catch (Exception e)
             {
-                foreach (var stead in items)
-                {
-                    try
-                    {
-                        _ctx.Steads.Add(stead.Get());
-                        _ctx.SaveChanges();
-                    }
-                    catch (Exception ie)
-                    {
-                        ;
-                    }
-                }
-
-
                 throw e;
             }
-            
-        }
 
+        }
+        /// <summary>
+        /// Все элементы
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Stead> All()
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Получение по первичному ключу
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public Stead Get(Guid key)
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Получение по LINQ функции
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public IEnumerable<Stead> Where(Func<Stead, bool> query)
         {
             throw new NotImplementedException();

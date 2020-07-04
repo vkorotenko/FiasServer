@@ -12,8 +12,16 @@ using VKorotenko.FiasServer.Bl.Extensions;
 
 namespace Fias.Loader.EfMsSql.Extensions
 {
+    /// <summary>
+    /// Расширение для конверсии из XML в объекты БД
+    /// </summary>
     public static class ConvertExtension
     {
+        /// <summary>
+        /// Получение адресного объекта
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static DbAddressObject Get(this AddressObject a)
         {
             return new DbAddressObject
@@ -58,7 +66,11 @@ namespace Fias.Loader.EfMsSql.Extensions
                 TERRIFNSUL = a.TERRIFNSUL
             };
         }
-
+        /// <summary>
+        /// Получение нормативного обьекта
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         public static DbNormativeDocument Get(this NormativeDocument d)
         {
             if (d.DocNum?.Length > 200) 
@@ -75,7 +87,11 @@ namespace Fias.Loader.EfMsSql.Extensions
                 NormDocId = d.NormDocId
             };
         }
-
+        /// <summary>
+        /// Получение DbStead
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public static DbStead Get(this Stead s)
         {
             if (s.Number?.Length > 120)

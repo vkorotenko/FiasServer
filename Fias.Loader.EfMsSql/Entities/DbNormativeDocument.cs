@@ -13,21 +13,41 @@ using VKorotenko.FiasServer.Bl.Data;
 
 namespace Fias.Loader.EfMsSql.Entities
 {
+    /// <summary>
+    /// Нормативный документ
+    /// </summary>
     [Table(NormativeDocument.Table)]
     public class DbNormativeDocument
     {
         #region Свойства
-        
+        /// <summary>
+        /// Ключ
+        /// </summary>
         [Column(NormativeDocumentTags.NORMDOCID),Key]
         public Guid NormDocId { get; set; }
+        /// <summary>
+        /// Имя
+        /// </summary>
         [Column(NormativeDocumentTags.DOCNAME)]
         public string DocName { get; set; }
+        /// <summary>
+        /// Дата
+        /// </summary>
         [Column(NormativeDocumentTags.DOCDATE)]
         public DateTime? DocDate { get; set; }
+        /// <summary>
+        /// Номер
+        /// </summary>
         [Column(NormativeDocumentTags.DOCNUM),MaxLength(200)]
         public string DocNum { get; set; }
+        /// <summary>
+        /// Тип документа
+        /// </summary>
         [Column(NormativeDocumentTags.DOCTYPE)]
         public short? DocType { get; set; }
+        /// <summary>
+        /// Изображение
+        /// </summary>
         [Column(NormativeDocumentTags.DOCIMGID)]
         public Guid? DocImgId { get; set; }
 

@@ -14,17 +14,33 @@ using VKorotenko.FiasServer.Bl.Dictionary;
 
 namespace Fias.Loader.EfMsSql.Entities
 {
+    /// <summary>
+    /// STRSTAT
+    /// </summary>
     [Table("STRSTAT")]
 
     public class DbStructureStatus
     {
-
+        /// <summary>
+        /// Ключ
+        /// </summary>
         [Column("STRSTATID"),Key]
         public byte StrstatId { get; set; }
+        /// <summary>
+        /// имя
+        /// </summary>
         [Column("NAME"),MaxLength(20)]
         public string Name { get; set; }
+        /// <summary>
+        /// Сокращение
+        /// </summary>
         [Column("SHORTNAME"),MaxLength(20)]
         public string ShortName { get; set; }
+        /// <summary>
+        /// получение из XML
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <returns></returns>
         public static DbStructureStatus Get(StructureStatus arg)
         {
             return new DbStructureStatus()

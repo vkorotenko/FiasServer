@@ -10,8 +10,16 @@
 
 namespace VKorotenko.FiasServer.Bl.Loggers
 {
+    /// <summary>
+    /// Интерфейс логгера
+    /// </summary>
     public interface ILogger
     {
+        /// <summary>
+        /// Вывод сообщения
+        /// </summary>
+        /// <param name="message">Сообщение</param>
+        /// <param name="args">параметры</param>
         void LogMessage(string message, params object[] args);
     }
 }

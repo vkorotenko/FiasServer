@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fias.Loader.EfMsSql</name>
+    </assembly>
+    <members>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.AddressObjects">
+            <summary>
+            Адресные объекты
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.NormativeDocuments">
+            <summary>
+            Нормативные документы
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.Steads">
+            <summary>
+            Stead
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -19,35 +19,74 @@ namespace VKorotenko.FiasServer.Bl.Data
     public class NormativeDocument
     {
         #region Служебные константы
+        /// <summary>
+        /// Корневой элемент в файле
+        /// </summary>
         public const string Root = "NormativeDocumentes";
+        /// <summary>
+        /// Название файла в архиве
+        /// </summary>
         public const string Start = "AS_NORMDOC_";
+        /// <summary>
+        /// Таблица в БД
+        /// </summary>
         public const string Table = "NORMDOC";
+        /// <summary>
+        /// Тэг в документе
+        /// </summary>
         public const string ContainerTag = "NormativeDocument";
         #endregion
 
         #region Свойства
-
+        /// <summary>
+        /// NORMDOCID
+        /// </summary>
         [XmlAttribute(NormativeDocumentTags.NORMDOCID)]
         public Guid NormDocId { get; set; }
+        /// <summary>
+        /// DOCNAME
+        /// </summary>
         [XmlAttribute(NormativeDocumentTags.DOCNAME)]
         public string DocName { get; set; }
+        /// <summary>
+        /// DOCDATE
+        /// </summary>
         [XmlAttribute(NormativeDocumentTags.DOCDATE)]
         public string DocDate { get; set; }
+        /// <summary>
+        /// DOCNUM
+        /// </summary>
         [XmlAttribute(NormativeDocumentTags.DOCNUM)]
         public string DocNum { get; set; }
+        /// <summary>
+        /// DOCTYPE
+        /// </summary>
         [XmlAttribute(NormativeDocumentTags.DOCTYPE)]
         public string DocType { get; set; }
+        /// <summary>
+        /// DOCIMGID
+        /// </summary>
         [XmlAttribute(NormativeDocumentTags.DOCIMGID)]
         public string DocImgId { get; set; }
 
         #endregion
+        /// <summary>
+        /// Загрузка XML
+        /// </summary>
+        /// <param name="xml"></param>
         public NormativeDocument(string xml)
         {
             LoadXml(xml);
         }
+        /// <summary>
+        /// Конструктор для сериализации
+        /// </summary>
         public NormativeDocument() { }
-
-        public void LoadXml(string source)
+        /// <summary>
+        /// Загрузка XML
+        /// </summary>
+        /// <param name="source"></param>
+        private void LoadXml(string source)
         {
             var serializer = new XmlSerializer(GetType());
             using var ms = new MemoryStream(Encoding.UTF8.GetBytes(source));

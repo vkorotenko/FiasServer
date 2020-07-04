@@ -39,6 +39,10 @@ namespace VKorotenko.FiasServer.Bl
         private readonly string _fullPath;
         private long _count;
         private long _take;
+        /// <summary>
+        /// Конструктор с полным путем к архиву для обработки
+        /// </summary>
+        /// <param name="pathToZip">Архив ФИАС</param>
         public AddressProcessor(string pathToZip)
         {
             _fullPath = pathToZip;

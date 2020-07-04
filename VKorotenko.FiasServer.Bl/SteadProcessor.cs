@@ -21,7 +21,9 @@ namespace VKorotenko.FiasServer.Bl
     /// <param name="sender">Отправитель</param>
     /// <param name="args">Параметры</param>
     public delegate void SteadParsed(object sender, SteadEventArgs args);
-
+    /// <summary>
+    /// Обработчик для <see cref="Stead"/>
+    /// </summary>
     public class SteadProcessor
     {
         private readonly string _fullPath;
@@ -31,6 +33,10 @@ namespace VKorotenko.FiasServer.Bl
         /// Имя обрабатываемого файла.
         /// </summary>
         public string NodeName { get; set; }
+        /// <summary>
+        /// процессор <see cref="Stead"/>
+        /// </summary>
+        /// <param name="pathToZip"></param>
         public SteadProcessor(string pathToZip)
         {
             _fullPath = pathToZip;

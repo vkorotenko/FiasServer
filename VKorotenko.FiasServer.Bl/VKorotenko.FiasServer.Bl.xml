@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VKorotenko.FiasServer.Bl</name>
+    </assembly>
+    <members>
+        <member name="T:VKorotenko.FiasServer.Bl.Complete">
+            <summary>
+            Делегат завершения обработки
+            </summary>
+            <param name="sender">Отправитель</param>
+            <param name="args">Аргумент</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.AddressParsed">
+            <summary>
+            Делегат обработки адреса
+            </summary>
+            <param name="sender">Отправитель</param>
+            <param name="args">Параметры</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.AddressProcessor">
+            <summary>
+            Процессор адресов.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.AddressProcessor.Run(System.Int64)">
+            <summary>
+            Запуск обработки файла
+            </summary>
+            <param name="take">Количество обрабатываемых адресов</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.AddressProcessor.AddressParsed">
+            <summary>
+            Событие обработки адреса.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.AddressProcessor.OnAddressParsed(System.Object,VKorotenko.FiasServer.Bl.Data.AddressObject)">
+            <summary>
+            Обработчик добавления адреса.
+            </summary>
+            <param name="s">Отправитель</param>
+            <param name="address">Обработанный адрес</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.AddressProcessor.Complete">
+            <summary>
+            Событие завершения обработки.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.AddressProcessor.OnComplete(System.Object)">
+            <summary>
+            Обработчик конца обработки файла.
+            </summary>
+            <param name="s">Отправитель</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.AddressProcessorEventArgs">
+            <summary>
+            Аргументы обработки Адреса
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.AddressProcessorEventArgs.#ctor(VKorotenko.FiasServer.Bl.Data.AddressObject,System.Int64)">
+            <summary>
+            Аргументы обработки Адреса
+            </summary>
+            <param name="address">Обработанный адрес</param>
+            <param name="count">Количество обработанных адресов</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.AddressProcessorEventArgs.Count">
+            <summary>
+            Количество обработанных адресов
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.AddressProcessorEventArgs.Address">
+            <summary>
+            Адрес
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.NormativeDocument">
+            <summary>
+            Класс нормативного документа
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.BlockCompleteArgs">
+            <summary>
+            Параметры скачанного блока
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.BlockCompleteArgs.Received">
+            <summary>
+            Общая длина скачанного куска файла.
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.BlockCompleteArgs.BlockSize">
+            <summary>
+            Размер блока при скачивании.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.BlockCompleteArgs.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Параметры скачанного блока.
+            </summary>
+            <param name="received">Общая длина скачанного куска файла.</param>
+            <param name="blockSize">Размер блока при скачивании.</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.CompleteArgs">
+            <summary>
+            Скачивание завершено
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.CompleteArgs.#ctor(System.String,System.String,System.DateTime)">
+            <summary>
+            Скачивание завершено.
+            </summary>
+            <param name="path">Путь к скачанному файлу</param>
+            <param name="url">URL скачанного файла</param>
+            <param name="date">Время завершения.</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.CompleteArgs.Date">
+            <summary>
+            Время завершения
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.CompleteArgs.Url">
+            <summary>
+            Url скачанного файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.CompleteArgs.Path">
+            <summary>
+            Путь к скачанному файлу
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo">
+            <summary>
+                Пакет информации о файлах
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo.VersionId">
+            <summary>
+                Идентификатор версии
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo.TextVersion">
+            <summary>
+                Текстовая версия
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo.FiasCompleteDbfUrl">
+            <summary>
+                Url полной базы в DBF
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo.FiasCompleteXmlUrl">
+            <summary>
+                Url полной базы в XML
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo.FiasDeltaDbfUrl">
+            <summary>
+                Url дельты базы в DBF
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo.FiasDeltaXmlUrl">
+            <summary>
+                Url дельты базы в XML
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo.Kladr4ArjUrl">
+            <summary>
+                Url  базы кладр в ARJ
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo.Kladr47ZUrl">
+            <summary>
+                Url  базы кладр в 7ZIP
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Download.Fetcher.AllUrl">
+            <summary>
+            Адрес полного пакета
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Download.Fetcher.LastUrl">
+            <summary>
+            Адрес последнего обновления.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.RenewableClient.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="url"></param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.RenewableClient.DropAfter">
+            <summary>
+            Прекратить попытки скачивания после заданного числа ошибок.
+            Значение по умолчанию 10. Увеличите количество при нестабильности сервера.
+            </summary>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.Download.RenewableClient.Complete">
+            <summary>
+            Скачивание завершено.
+            </summary>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.Download.RenewableClient.BlockComplete">
+            <summary>
+            Скачивание блока завершено
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.RenewableClient.Download">
+            <summary>
+            Начать скачивание файла. 
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.Complete">
+            <summary>
+            Делегат завершения скачивания
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.BlockComplete">
+            <summary>
+            Делегат для скачивания блока.
+            </summary>
+            <param name="sender">Отправитель</param>
+            <param name="args">Параметры скачанного блока</param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Extensions.StringExtension.GetCurStatus(System.String)">
+            <summary>
+            Попытка обработать статус, 0 если пустая строка
+            </summary>
+            <param name="conv"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.FileProcessor">
+            <summary>
+            Обработчик словарей. 
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.FileProcessor.Result">
+            <summary>
+            Результаты обработки словарей
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.FileProcessor.Run">
+            <summary>
+            Запуск обработки
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.DocumentParsed">
+            <summary>
+            Делегат обработки документа
+            </summary>
+            <param name="sender">Отправитель</param>
+            <param name="args">Параметры</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.NodeName">
+            <summary>
+            Имя обрабатываемого файла.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.Run(System.Int64)">
+            <summary>
+            Запуск обработки файла
+            </summary>
+            <param name="take">Количество обрабатываемых адресов</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.DocumentParsed">
+            <summary>
+            Событие обработки документа.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.OnDocumentParsed(System.Object,VKorotenko.FiasServer.Bl.Data.NormativeDocument)">
+            <summary>
+            Обработчик добавления документа.
+            </summary>
+            <param name="s">Отправитель</param>
+            <param name="doc">Обработанный документ</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.Complete">
+            <summary>
+            Событие завершения обработки.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.OnComplete(System.Object)">
+            <summary>
+            Обработчик конца обработки файла.
+            </summary>
+            <param name="s">Отправитель</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.SteadParsed">
+            <summary>
+            Делегат обработки документа
+            </summary>
+            <param name="sender">Отправитель</param>
+            <param name="args">Параметры</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.SteadProcessor.NodeName">
+            <summary>
+            Имя обрабатываемого файла.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.SteadProcessor.Run(System.Int64)">
+            <summary>
+            Запуск обработки файла
+            </summary>
+            <param name="take">Количество обрабатываемых адресов</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.SteadProcessor.SteadParsed">
+            <summary>
+            Событие обработки Stead.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.SteadProcessor.OnSteadParsed(System.Object,VKorotenko.FiasServer.Bl.Data.Stead)">
+            <summary>
+            Обработчик добавления Stead.
+            </summary>
+            <param name="s">Отправитель</param>
+            <param name="doc">Обработанный документ</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.SteadProcessor.Complete">
+            <summary>
+            Событие завершения обработки.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.SteadProcessor.OnComplete(System.Object)">
+            <summary>
+            Обработчик конца обработки файла.
+            </summary>
+            <param name="s">Отправитель</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Utils">
+            <summary>
+            Общие утилиты для кода
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Utils.GetXmlForElement(System.Xml.XmlReader)">
+            <summary>
+            Перебирает атрибуты и формирует элемент.
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

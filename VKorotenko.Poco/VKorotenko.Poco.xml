@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VKorotenko.Poco</name>
+    </assembly>
+    <members>
+        <member name="T:VKorotenko.Poco.City">
+            <summary>
+            Город
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.RegionId">
+            <summary>
+            Регион к которому принадлежит город
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.Name">
+            <summary>
+            Имя города
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.Lon">
+            <summary>
+            Longitude
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.Lat">
+            <summary>
+            Latitude
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.Slug">
+            <summary>
+            Название для ЧПУ
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.Prefix">
+            <summary>
+            Префикс образования, например район или область
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.Guid">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.City.Parent">
+            <summary>
+            Вышестоящий объект, используется для вывода иерархии
+            </summary>
+        </member>
+        <member name="T:VKorotenko.Poco.Region">
+            <summary>
+            Регион для выбора
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Region.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Region.Name">
+            <summary>
+            Название региона
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Region.Prefix">
+            <summary>
+            Край, область и т.д.
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Region.Slug">
+            <summary>
+            Название для ЧПУ
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Region.Guid">
+            <summary>
+            Идентификатор региона
+            </summary>
+        </member>
+    </members>
+</doc>

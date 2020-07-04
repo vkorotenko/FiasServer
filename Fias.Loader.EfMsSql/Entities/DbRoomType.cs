@@ -14,16 +14,32 @@ using VKorotenko.FiasServer.Bl.Dictionary;
 
 namespace Fias.Loader.EfMsSql.Entities
 {
+    /// <summary>
+    /// Тип комнаты
+    /// </summary>
     [Table("ROOMTYPE")]
     public class DbRoomType
     {
+        /// <summary>
+        /// Ключ
+        /// </summary>
         [Column("RMTYPEID"), Key]
         public byte RmtypeId { get; set; }
+        /// <summary>
+        /// Имя
+        /// </summary>
         [Column("NAME"), MaxLength(20)]
         public string Name { get; set; }
+        /// <summary>
+        /// Сокращение
+        /// </summary>
         [Column("SHORTNAME"), MaxLength(20)]
         public string ShortName { get; set; }
-
+        /// <summary>
+        /// Получение из XML
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <returns></returns>
         public static DbRoomType Get(RoomType arg)
         {
             return new DbRoomType()

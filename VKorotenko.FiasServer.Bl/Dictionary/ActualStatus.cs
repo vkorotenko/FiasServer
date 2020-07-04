@@ -12,13 +12,28 @@ using System.Xml.Serialization;
 
 namespace VKorotenko.FiasServer.Bl.Dictionary
 {
+    /// <summary>
+    /// Статус  актуальности
+    /// </summary>
     [Serializable]
     public class ActualStatus
     {
+        /// <summary>
+        /// Корневой элемент
+        /// </summary>
         public const string Root = "ActualStatuses";
+        /// <summary>
+        /// Имя файла
+        /// </summary>
         public const string Start = "AS_ACTSTAT_";
+        /// <summary>
+        /// ACTSTATID
+        /// </summary>
         [XmlAttribute(AttributeName = "ACTSTATID")]
         public byte ActstatId { get; set; }
+        /// <summary>
+        /// NAME
+        /// </summary>
         [XmlAttribute(AttributeName = "NAME")]
         public string Name { get; set; }
     }

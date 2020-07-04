@@ -8,6 +8,10 @@
     <Description>Fias server stuff library.</Description>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>V:\project\FiasServer\VKorotenko.Poco\VKorotenko.Poco.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Dictionary\" />
   </ItemGroup>

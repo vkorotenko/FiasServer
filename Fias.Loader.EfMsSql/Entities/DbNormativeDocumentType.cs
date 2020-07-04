@@ -15,13 +15,27 @@ using VKorotenko.FiasServer.Bl.Dictionary;
 
 namespace Fias.Loader.EfMsSql.Entities
 {
+    /// <summary>
+    /// Тип нормативного документа
+    /// </summary>
     [Table("NDOCTYPE")]
     public class DbNormativeDocumentType
     {
+        /// <summary>
+        /// Ключ
+        /// </summary>
         [Column( "NDTYPEID"),Key]
-        public Int16 NdtypeId { get; set; }
+        public short NdtypeId { get; set; }
+        /// <summary>
+        /// Имя
+        /// </summary>
         [Column( "NAME"),MaxLength(250)]
         public string Name { get; set; }
+        /// <summary>
+        /// Получение из XML
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <returns></returns>
         public static DbNormativeDocumentType Get(NormativeDocumentType arg)
         {
             return new DbNormativeDocumentType()

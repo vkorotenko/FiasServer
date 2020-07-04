@@ -22,7 +22,9 @@ namespace VKorotenko.FiasServer.Bl
     /// <param name="args">Параметры</param>
     public delegate void DocumentParsed(object sender, NormativeDocumentEventArgs args);
 
-
+    /// <summary>
+    /// Парсер нормативных документов
+    /// </summary>
     public class NormativeDocumentProcessor
     {
         private readonly string _fullPath;
@@ -32,6 +34,10 @@ namespace VKorotenko.FiasServer.Bl
         /// Имя обрабатываемого файла.
         /// </summary>
         public string NodeName { get; set; }
+        /// <summary>
+        /// Процессор нормативных документов
+        /// </summary>
+        /// <param name="pathToZip"></param>
         public NormativeDocumentProcessor(string pathToZip)
         {
             _fullPath = pathToZip;

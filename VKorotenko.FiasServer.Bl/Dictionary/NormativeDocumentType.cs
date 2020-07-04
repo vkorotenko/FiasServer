@@ -13,14 +13,28 @@ using System.Xml.Serialization;
 
 namespace VKorotenko.FiasServer.Bl.Dictionary
 {
+    /// <summary>
+    /// Тип нормативного документа
+    /// </summary>
     [Serializable]
     public class NormativeDocumentType
     {
-
+        /// <summary>
+        /// Корневой элемент
+        /// </summary>
         public const string Root = "NormativeDocumentTypes";
+        /// <summary>
+        /// Имя файла
+        /// </summary>
         public const string Start = "AS_NDOCTYPE_";
+        /// <summary>
+        /// Идентификатор
+        /// </summary>
         [XmlAttribute(AttributeName = "NDTYPEID")]
-        public Int16 NdtypeId { get; set; }
+        public short NdtypeId { get; set; }
+        /// <summary>
+        /// Имя
+        /// </summary>
         [XmlAttribute(AttributeName = "NAME")]
         public string Name { get; set; }
     }

@@ -10,13 +10,34 @@
 
 namespace VKorotenko.FiasServer.Bl.Data
 {
+    /// <summary>
+    /// Теги в нормативных документах
+    /// </summary>
     public static  class NormativeDocumentTags
     {
+        /// <summary>
+        /// Идентификатор документа NORMDOCID
+        /// </summary>
         public const string NORMDOCID = "NORMDOCID";
+        /// <summary>
+        /// Имя DOCNAME
+        /// </summary>
         public const string DOCNAME = "DOCNAME";
+        /// <summary>
+        /// Дата DOCDATE
+        /// </summary>
         public const string DOCDATE = "DOCDATE";
+        /// <summary>
+        /// Номер DOCNUM
+        /// </summary>
         public const string DOCNUM = "DOCNUM";
+        /// <summary>
+        /// Тип документа DOCTYPE
+        /// </summary>
         public const string DOCTYPE = "DOCTYPE";
+        /// <summary>
+        /// Идентификатор изображения DOCIMGID
+        /// </summary>
         public const string DOCIMGID = "DOCIMGID";
     }
 }

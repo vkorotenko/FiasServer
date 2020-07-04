@@ -15,6 +15,9 @@ using System.Net;
 
 namespace VKorotenko.FiasServer.Bl.Download
 {
+    /// <summary>
+    /// Клиент для докачки. 
+    /// </summary>
     public class RenewableClient : IDisposable
     {
         private const int BlockSize = 8 * 1024;
@@ -24,11 +27,12 @@ namespace VKorotenko.FiasServer.Bl.Download
         private long _pos;
         private long _responseLength;
         private long _received;
+        
         /// <summary>
-        /// 
+        /// Конструктор клиента
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="url"></param>
+        /// <param name="path">Путь куда закачивать</param>
+        /// <param name="url">Адрес что скачиваем</param>
         public RenewableClient(string path, string url)
         {
             _url = url;
@@ -41,7 +45,9 @@ namespace VKorotenko.FiasServer.Bl.Download
         /// Значение по умолчанию 10. Увеличите количество при нестабильности сервера.
         /// </summary>
         public int DropAfter { get; set; } = 10;
-
+        /// <summary>
+        /// Очистка ресурсов
+        /// </summary>
         public void Dispose()
         {
             _fs?.Dispose();
@@ -136,8 +142,8 @@ namespace VKorotenko.FiasServer.Bl.Download
     /// <summary>
     /// Делегат завершения скачивания
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="args"></param>
+    /// <param name="sender">Отправитель</param>
+    /// <param name="args">Аргументы</param>
     public delegate void Complete(object sender, CompleteArgs args);
 
     /// <summary>

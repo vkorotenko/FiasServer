@@ -21,6 +21,9 @@
     <PlatformTarget>x64</PlatformTarget>
     <RuntimeIdentifie>win10-x64</RuntimeIdentifie>  
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>V:\project\FiasServer\fiasdl\fiasdl.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="test.xml" />
   </ItemGroup>

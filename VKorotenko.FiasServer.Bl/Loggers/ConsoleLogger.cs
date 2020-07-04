@@ -12,8 +12,16 @@ using System;
 
 namespace VKorotenko.FiasServer.Bl.Loggers
 {
+    /// <summary>
+    /// Логгер с выводом на консоль
+    /// </summary>
     public class ConsoleLogger : ILogger
     {
+        /// <summary>
+        /// Вывод на консоль
+        /// </summary>
+        /// <param name="message">Сообщение</param>
+        /// <param name="args">Объекты форматирования</param>
         public void LogMessage(string message, params object[] args)
         {
             Console.WriteLine(message, args);

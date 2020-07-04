@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fias.Loader</name>
+    </assembly>
+    <members>
+        <member name="T:Fias.Loader.App">
+            <summary>
+            Приложение для ввода данных из архива.
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.App.#ctor(Microsoft.Extensions.Logging.ILogger{Fias.Loader.App},Microsoft.Extensions.Options.IOptions{Fias.Loader.Configuration.AppConfig})">
+            <summary>
+            Конструктор приложения 
+            </summary>
+            <param name="logger">Экземпляр логгера</param>
+            <param name="appSettings">Настройки приложения</param>
+        </member>
+        <member name="M:Fias.Loader.App.Run">
+            <summary>
+            Запуск обработки данных.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.Configuration.AppConfig">
+            <summary>
+            Конфигурация приложения считываемая из appsettings.json
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.Configuration.AppConfig.FiasConnection">
+            <summary>
+            Строка соединения
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.Configuration.AppConfig.DbBack">
+            <summary>
+            Движок базы данных
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.Configuration.AppConfig.FullPath">
+            <summary>
+            Путь к архиву загруженной базы ФИАС
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.Configuration.AppConfig.ProcessTables">
+            <summary>
+            Обрабатываемые таблицы при загрузке. 
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.Program">
+            <summary>
+            Главный файл приложения, регистрирует сервисы и прочее.
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.Program.Main(System.String[])">
+            <summary>
+            Подготавливаем сервисы и запускаем приложение
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
