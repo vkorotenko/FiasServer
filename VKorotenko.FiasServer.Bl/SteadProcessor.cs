@@ -20,10 +20,9 @@ namespace VKorotenko.FiasServer.Bl
     /// </summary>
     /// <param name="sender">Отправитель</param>
     /// <param name="args">Параметры</param>
-    public delegate void DocumentParsed(object sender, NormativeDocumentEventArgs args);
+    public delegate void SteadParsed(object sender, SteadEventArgs args);
 
-
-    public class NormativeDocumentProcessor
+    public class SteadProcessor
     {
         private readonly string _fullPath;
         private long _count;
@@ -32,7 +31,7 @@ namespace VKorotenko.FiasServer.Bl
         /// Имя обрабатываемого файла.
         /// </summary>
         public string NodeName { get; set; }
-        public NormativeDocumentProcessor(string pathToZip)
+        public SteadProcessor(string pathToZip)
         {
             _fullPath = pathToZip;
         }
@@ -46,7 +45,7 @@ namespace VKorotenko.FiasServer.Bl
             using var archive = ZipFile.OpenRead(_fullPath);
             foreach (var entry in archive.Entries)
             {
-                if (!entry.Name.ToUpperInvariant().StartsWith(NormativeDocument.Start.ToUpperInvariant())) continue;
+                if (!entry.Name.ToUpperInvariant().StartsWith(Stead.Start.ToUpperInvariant())) continue;
                 NodeName = entry.Name;
                 try
                 {
@@ -62,7 +61,7 @@ namespace VKorotenko.FiasServer.Bl
                         switch (reader.NodeType)
                         {
                             case XmlNodeType.Element:
-                                if (reader.Name == NormativeDocument.ContainerTag)
+                                if (reader.Name == Stead.ContainerTag)
                                 {
 
                                     if (reader.HasAttributes)
@@ -70,8 +69,8 @@ namespace VKorotenko.FiasServer.Bl
                                         var result = Utils.GetXmlForElement(reader);
                                         try
                                         {
-                                            var c = new NormativeDocument(result);
-                                            OnDocumentParsed(this, c);
+                                            var c = new Stead(result);
+                                            OnSteadParsed(this, c);
                                             _count++;
                                             if (_count > _take)
                                             {
@@ -81,7 +80,7 @@ namespace VKorotenko.FiasServer.Bl
                                         }
                                         catch (Exception e)
                                         {
-                                            Debug.WriteLine(e.Message);
+                                            Debug.WriteLine($"{e.Message} {e.StackTrace}");
                                         }
                                     }
                                 }
@@ -99,17 +98,17 @@ namespace VKorotenko.FiasServer.Bl
             }
         }
         /// <summary>
-        /// Событие обработки документа.
+        /// Событие обработки Stead.
         /// </summary>
-        public event DocumentParsed DocumentParsed;
+        public event SteadParsed SteadParsed;
         /// <summary>
-        /// Обработчик добавления документа.
+        /// Обработчик добавления Stead.
         /// </summary>
         /// <param name="s">Отправитель</param>
         /// <param name="doc">Обработанный документ</param>
-        protected virtual void OnDocumentParsed(object s, NormativeDocument doc)
+        protected virtual void OnSteadParsed(object s, Stead doc)
         {
-            DocumentParsed?.Invoke(s, new NormativeDocumentEventArgs(doc, _count));
+            SteadParsed?.Invoke(s, new SteadEventArgs(doc, _count));
         }
         /// <summary>
         /// Событие завершения обработки.

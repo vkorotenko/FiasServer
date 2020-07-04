@@ -75,5 +75,38 @@ namespace Fias.Loader.EfMsSql.Extensions
                 NormDocId = d.NormDocId
             };
         }
+
+        public static DbStead Get(this Stead s)
+        {
+            if (s.Number?.Length > 120)
+#pragma warning disable 642
+                ; // ловим превышение длины
+#pragma warning restore 642
+            return new DbStead
+            {
+                STEADID = s.STEADID,
+                IFNSUL = s.IFNSUL.ToNullInt(),
+                OKATO = s.OKATO.ToNullLong(),
+                RegionCode = s.RegionCode,
+                PostalCode = s.PostalCode.ToNullInt(),
+                NORMDOC = s.NORMDOC.ToNullGuid(),
+                OKTMO = s.OKTMO.ToNullLong(),
+                TERRIFNSUL = s.TERRIFNSUL.ToNullInt(),
+                IFNSFL = s.IFNSFL.ToNullInt(),
+                TERRIFNSFL = s.TERRIFNSFL.ToNullInt(),
+                STEADGUID = s.STEADGUID,
+                CADNUM = s.CADNUM,
+                DIVTYPE = s.DIVTYPE,
+                ENDDATE = s.ENDDATE,
+                LIVESTATUS = s.LIVESTATUS,
+                NEXTID = s.NEXTID.ToNullGuid(),
+                Number = s.Number,
+                OPERSTATUS = s.OPERSTATUS,
+                PARENTGUID = s.PARENTGUID.ToNullGuid(),
+                PREVID = s.PREVID.ToNullGuid(),
+                STARTDATE = s.STARTDATE,
+                UPDATEDATE = s.UPDATEDATE
+            };
+        }
     }
 }

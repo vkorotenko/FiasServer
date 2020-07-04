@@ -31,6 +31,7 @@ namespace VKorotenko.FiasServer.Bl.Abstraction
         #region Данные
         IRepository<AddressObject,Guid> AddressRepository { get; }
         IRepository<NormativeDocument,Guid> NormativeDocument { get; }
+        IRepository<Stead, Guid> Steads { get; }
         #endregion
     }
 }

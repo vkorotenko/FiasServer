@@ -24,6 +24,9 @@ using VKorotenko.FiasServer.Bl.PureData;
 
 namespace Fias.Loader
 {
+    /// <summary>
+    /// Приложение для ввода данных из архива.
+    /// </summary>
     public class App
     {
         private readonly ILogger<App> _logger;
@@ -34,6 +37,8 @@ namespace Fias.Loader
         private List<NormativeDocument> _normDocs;
         private HashSet<Guid> _normDocIds;
         private readonly DateTime _start = DateTime.Now;
+        private HashSet<Stead> _stead;
+        private HashSet<Guid> _steadIds;
 
         /// <summary>
         /// Конструктор приложения 
@@ -69,16 +74,55 @@ namespace Fias.Loader
                         case NormativeDocument.Start:
                             await ProcessNormativeDocument();
                             break;
+                        case Stead.Start:
+                            await ProcessStead();
+                            break;
                         default:
                             _logger.LogError("Пустой список таблиц для обработки.");
                             return;
                     }
                 }
-
-
-
             }
         }
+
+        #region Stead
+        private async Task ProcessStead()
+        {
+            _logger.LogInformation(DateTime.Now + " Start Stead");
+            var proc = new SteadProcessor(_appConfig.FullPath);
+            _stead = new HashSet<Stead>();
+            _steadIds = new HashSet<Guid>();
+            proc.Complete += SteadComplete;
+            proc.SteadParsed += OnSteadParsed;
+            Console.WriteLine();
+            await proc.Run();
+        }
+        private void OnSteadParsed(object sender, SteadEventArgs args)
+        {
+            if (!_steadIds.Contains(args.Document.STEADID))
+            {
+                _steadIds.Add(args.Document.STEADID);
+                _stead.Add(args.Document);
+            }
+            if (_stead.Count % 10000 != 0) return;
+            InsertStead();
+            var now = DateTime.Now;
+            var top = Console.CursorTop;
+            Console.SetCursorPosition(0, top - 1);
+            Console.WriteLine($"{(now - _start).TotalSeconds:N1} s. Process: {(args.Count + 1):N0}");
+        }
+        private void SteadComplete(object sender, EventArgs args)
+        {
+            InsertStead();
+            _steadIds.Clear();
+            _logger.LogInformation(DateTime.Now + " End Stead");
+        }
+        private void InsertStead()
+        {
+            _back.Steads.AddRange(_stead);
+            _stead.Clear();
+        }
+        #endregion
         #region Обработка нормативных документов
         private async Task ProcessNormativeDocument()
         {
@@ -110,6 +154,7 @@ namespace Fias.Loader
         private void DocumentComplete(object sender, EventArgs args)
         {
             InsertDocument();
+            _normDocIds.Clear();
             _logger.LogInformation(DateTime.Now + " End Document");
         }
 

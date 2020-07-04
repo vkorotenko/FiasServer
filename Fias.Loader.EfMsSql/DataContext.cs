@@ -45,5 +45,9 @@ namespace Fias.Loader.EfMsSql
         /// Нормативные документы
         /// </summary>
         public DbSet<DbNormativeDocument> NormativeDocuments { get; set; }
+        /// <summary>
+        /// Stead
+        /// </summary>
+        public DbSet<DbStead> Steads { get; set; }
     }
 }

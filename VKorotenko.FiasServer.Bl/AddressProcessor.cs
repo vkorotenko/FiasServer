@@ -71,7 +71,7 @@ namespace VKorotenko.FiasServer.Bl
 
                                         if (reader.HasAttributes)
                                         {
-                                            var result = GetXmlForElement(reader);
+                                            var result = Utils.GetXmlForElement(reader);
                                             try
                                             {
                                                 var c = new XmlAddressObject(result);
@@ -105,23 +105,7 @@ namespace VKorotenko.FiasServer.Bl
             }
         }
 
-        private static string GetXmlForElement(XmlReader reader)
-        {
-            var xml = new StringBuilder();
-            xml.Append($"<{reader.Name} ");
-            while (reader.MoveToNextAttribute())
-            {
-                var quoted = reader.Value.Replace("\"", "&quot;");
-                quoted = quoted.Replace("'", "&apos;");
-                quoted = quoted.Replace("<", "&lt;");
-                quoted = quoted.Replace(">", "&gt;");
-                quoted = quoted.Replace("&", "&amp;");
-                xml.Append($"{reader.Name}=\"{quoted}\" ");
-            }
-            xml.Append(" />");
-            var result = xml.ToString();
-            return result;
-        }
+        
         /// <summary>
         /// Событие обработки адреса.
         /// </summary>
