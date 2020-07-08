@@ -32,6 +32,9 @@ namespace Fias.Loader.EfMsSql
             AddressRepository = new AddressRepository(_ctx);
             NormativeDocument = new NormativeDocumentRepository(_ctx);
             Steads = new SteadRepository(_ctx);
+            Houses = new HouseRepository(_ctx);
+            BuildNumbers= new BuildNumbersRepository(_ctx);
+            HouseNumbers = new HouseNumbersRepository(_ctx);
         }
 
         #region Словари
@@ -133,5 +136,17 @@ namespace Fias.Loader.EfMsSql
         /// Репозиторий Stead
         /// </summary>
         public IRepository<Stead, Guid> Steads { get; private set; }
+        /// <summary>
+        /// Дома
+        /// </summary>
+        public IRepository<House, Guid> Houses { get; private set; }
+        /// <summary>
+        /// Номера строений
+        /// </summary>
+        public IRepository<BuildNum, short> BuildNumbers { get; private set; }
+        /// <summary>
+        /// Номера домов
+        /// </summary>
+        public IRepository<HouseNum, int> HouseNumbers { get; private set; }
     }
 }

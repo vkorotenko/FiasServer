@@ -91,6 +91,18 @@ namespace VKorotenko.FiasServer.Bl.Abstraction
         /// Stead
         /// </summary>
         IRepository<Stead, Guid> Steads { get; }
+        /// <summary>
+        /// Дома
+        /// </summary>
+        IRepository<House,Guid> Houses { get; }
+        /// <summary>
+        /// Номера строений
+        /// </summary>
+        IRepository<BuildNum,short> BuildNumbers { get; }
+        /// <summary>
+        /// Номера домов
+        /// </summary>
+        IRepository<HouseNum, int> HouseNumbers { get; }
         #endregion
     }
 }

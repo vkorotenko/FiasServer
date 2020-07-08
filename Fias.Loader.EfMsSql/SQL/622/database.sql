@@ -3,9 +3,10 @@ GO
 CREATE DATABASE [FIAS_622]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'FIAS_622', FILENAME = N'V:\FIAS\FIAS_622.mdf' , SIZE = 11476992KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'FIAS_622', FILENAME = N'V:\FIAS\FIAS_622.mdf' , SIZE = 13770752KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'FIAS_622_log', FILENAME = N'V:\FIAS\FIAS_622_log.ldf' , SIZE = 2564096KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'FIAS_622_log', FILENAME = N'V:\FIAS\FIAS_622_log.ldf' , SIZE = 2746624KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ COLLATE Cyrillic_General_100_BIN2
 GO
 ALTER DATABASE [FIAS_622] SET COMPATIBILITY_LEVEL = 140
 GO
@@ -102,22 +103,9 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[__EFMigrationsHistory](
-	[MigrationId] [nvarchar](150) NOT NULL,
-	[ProductVersion] [nvarchar](32) NOT NULL,
- CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
-(
-	[MigrationId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 CREATE TABLE [dbo].[ACTSTAT](
 	[ACTSTATID] [smallint] NOT NULL,
-	[NAME] [nvarchar](100) NOT NULL,
+	[NAME] [nvarchar](100) COLLATE Cyrillic_General_CI_AS NOT NULL,
  CONSTRAINT [PK_ACTSTAT] PRIMARY KEY CLUSTERED 
 (
 	[ACTSTATID] ASC
@@ -130,7 +118,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ADDROBJ](
 	[AOGUID] [uniqueidentifier] NOT NULL,
-	[FORMALNAME] [nvarchar](120) NOT NULL,
+	[FORMALNAME] [nvarchar](120) COLLATE Cyrillic_General_CI_AS NOT NULL,
 	[REGIONCODE] [int] NOT NULL,
 	[AUTOCODE] [int] NOT NULL,
 	[AREACODE] [int] NOT NULL,
@@ -141,7 +129,7 @@ CREATE TABLE [dbo].[ADDROBJ](
 	[STREETCODE] [int] NULL,
 	[EXTRCODE] [int] NOT NULL,
 	[SEXTCODE] [int] NOT NULL,
-	[OFFNAME] [nvarchar](120) NULL,
+	[OFFNAME] [nvarchar](120) COLLATE Cyrillic_General_CI_AS NULL,
 	[POSTALCODE] [int] NULL,
 	[IFNSFL] [int] NULL,
 	[TERRIFNSFL] [int] NULL,
@@ -178,7 +166,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CENTERST](
-	[NAME] [nvarchar](100) NOT NULL,
+	[NAME] [nvarchar](100) COLLATE Cyrillic_General_CI_AS NOT NULL,
 	[CENTERSTID] [smallint] NOT NULL,
  CONSTRAINT [PK_CENTERST] PRIMARY KEY CLUSTERED 
 (
@@ -192,7 +180,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CURENTST](
 	[CURENTSTID] [tinyint] NOT NULL,
-	[NAME] [nvarchar](100) NULL,
+	[NAME] [nvarchar](100) COLLATE Cyrillic_General_CI_AS NULL,
  CONSTRAINT [PK_CURENTST] PRIMARY KEY CLUSTERED 
 (
 	[CURENTSTID] ASC
@@ -205,8 +193,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ESTSTAT](
 	[ESTSTATID] [tinyint] NOT NULL,
-	[NAME] [nvarchar](20) NOT NULL,
-	[SHORTNAME] [nvarchar](20) NULL,
+	[NAME] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NOT NULL,
+	[SHORTNAME] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NULL,
  CONSTRAINT [PK_ESTSTAT] PRIMARY KEY CLUSTERED 
 (
 	[ESTSTATID] ASC
@@ -219,8 +207,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[FLATTYPE](
 	[FLTYPEID] [tinyint] NOT NULL,
-	[NAME] [nvarchar](20) NOT NULL,
-	[SHORTNAME] [nvarchar](20) NULL,
+	[NAME] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NOT NULL,
+	[SHORTNAME] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NULL,
  CONSTRAINT [PK_FLATTYPE] PRIMARY KEY CLUSTERED 
 (
 	[FLTYPEID] ASC
@@ -240,7 +228,7 @@ CREATE TABLE [dbo].[HOUSE](
 	[OKTMO] [bigint] NULL,
 	[UPDATEDATE] [date] NOT NULL,
 	[ESTSTATUS] [smallint] NOT NULL,
-	[STRUCNUM] [nvarchar](10) NULL,
+	[STRUCNUM] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NULL,
 	[STRSTATUS] [tinyint] NULL,
 	[HOUSEID] [uniqueidentifier] NOT NULL,
 	[HOUSEGUID] [uniqueidentifier] NOT NULL,
@@ -250,7 +238,7 @@ CREATE TABLE [dbo].[HOUSE](
 	[STATSTATUS] [bigint] NOT NULL,
 	[NORMDOC] [uniqueidentifier] NULL,
 	[COUNTER] [smallint] NOT NULL,
-	[CADNUM] [nvarchar](100) NULL,
+	[CADNUM] [nvarchar](200) COLLATE Cyrillic_General_CI_AS NULL,
 	[DIVTYPE] [tinyint] NOT NULL,
 	[POSTALCODE] [int] NULL,
 	[REGIONCODE] [tinyint] NULL,
@@ -262,9 +250,34 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+CREATE TABLE [dbo].[HOUSEINT](
+	[TERRIFNSUL] [nvarchar](4) COLLATE Cyrillic_General_CI_AS NULL,
+	[OKATO] [nvarchar](11) COLLATE Cyrillic_General_CI_AS NULL,
+	[OKTMO] [nvarchar](11) COLLATE Cyrillic_General_CI_AS NULL,
+	[UPDATEDATE] [date] NOT NULL,
+	[INTSTART] [bigint] NOT NULL,
+	[INTEND] [bigint] NOT NULL,
+	[HOUSEINTID] [uniqueidentifier] NOT NULL,
+	[INTGUID] [uniqueidentifier] NOT NULL,
+	[AOGUID] [uniqueidentifier] NOT NULL,
+	[STARTDATE] [date] NOT NULL,
+	[ENDDATE] [date] NOT NULL,
+	[INTSTATUS] [bigint] NOT NULL,
+	[NORMDOC] [uniqueidentifier] NULL,
+	[COUNTER] [bigint] NOT NULL,
+	[IFNSUL] [nvarchar](4) COLLATE Cyrillic_General_CI_AS NULL,
+	[TERRIFNSFL] [nvarchar](4) COLLATE Cyrillic_General_CI_AS NULL,
+	[IFNSFL] [nvarchar](4) COLLATE Cyrillic_General_CI_AS NULL,
+	[POSTALCODE] [nvarchar](6) COLLATE Cyrillic_General_CI_AS NULL
+) ON [PRIMARY]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE TABLE [dbo].[HOUSE_BUILDNUM](
 	[ID] [smallint] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](10) NULL,
+	[Name] [nvarchar](10) COLLATE Cyrillic_General_BIN2 NULL,
  CONSTRAINT [PK_BLDNUM] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -277,7 +290,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[HOUSE_HOUSENUM](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[Name] [nchar](20) NULL,
+	[Name] [nvarchar](20) COLLATE Cyrillic_General_BIN2 NULL,
  CONSTRAINT [PK_HOUSE_HOUSENUM] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -288,34 +301,9 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[HOUSEINT](
-	[TERRIFNSUL] [nvarchar](4) NULL,
-	[OKATO] [nvarchar](11) NULL,
-	[OKTMO] [nvarchar](11) NULL,
-	[UPDATEDATE] [date] NOT NULL,
-	[INTSTART] [bigint] NOT NULL,
-	[INTEND] [bigint] NOT NULL,
-	[HOUSEINTID] [uniqueidentifier] NOT NULL,
-	[INTGUID] [uniqueidentifier] NOT NULL,
-	[AOGUID] [uniqueidentifier] NOT NULL,
-	[STARTDATE] [date] NOT NULL,
-	[ENDDATE] [date] NOT NULL,
-	[INTSTATUS] [bigint] NOT NULL,
-	[NORMDOC] [uniqueidentifier] NULL,
-	[COUNTER] [bigint] NOT NULL,
-	[IFNSUL] [nvarchar](4) NULL,
-	[TERRIFNSFL] [nvarchar](4) NULL,
-	[IFNSFL] [nvarchar](4) NULL,
-	[POSTALCODE] [nvarchar](6) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 CREATE TABLE [dbo].[HSTSTAT](
 	[HOUSESTID] [int] NOT NULL,
-	[NAME] [nvarchar](60) NOT NULL,
+	[NAME] [nvarchar](60) COLLATE Cyrillic_General_CI_AS NOT NULL,
  CONSTRAINT [PK_HSTSTAT] PRIMARY KEY CLUSTERED 
 (
 	[HOUSESTID] ASC
@@ -328,7 +316,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[INTVSTAT](
 	[INTVSTATID] [int] NOT NULL,
-	[NAME] [nvarchar](60) NOT NULL,
+	[NAME] [nvarchar](60) COLLATE Cyrillic_General_CI_AS NOT NULL,
  CONSTRAINT [PK_INTVSTAT] PRIMARY KEY CLUSTERED 
 (
 	[INTVSTATID] ASC
@@ -340,14 +328,14 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[LANDMARK](
-	[LOCATION] [nvarchar](500) NOT NULL,
-	[POSTALCODE] [nvarchar](6) NULL,
-	[IFNSFL] [nvarchar](4) NULL,
-	[TERRIFNSFL] [nvarchar](4) NULL,
-	[IFNSUL] [nvarchar](4) NULL,
-	[TERRIFNSUL] [nvarchar](4) NULL,
-	[OKATO] [nvarchar](11) NULL,
-	[OKTMO] [nvarchar](11) NULL,
+	[LOCATION] [nvarchar](500) COLLATE Cyrillic_General_CI_AS NOT NULL,
+	[POSTALCODE] [nvarchar](6) COLLATE Cyrillic_General_CI_AS NULL,
+	[IFNSFL] [nvarchar](4) COLLATE Cyrillic_General_CI_AS NULL,
+	[TERRIFNSFL] [nvarchar](4) COLLATE Cyrillic_General_CI_AS NULL,
+	[IFNSUL] [nvarchar](4) COLLATE Cyrillic_General_CI_AS NULL,
+	[TERRIFNSUL] [nvarchar](4) COLLATE Cyrillic_General_CI_AS NULL,
+	[OKATO] [nvarchar](11) COLLATE Cyrillic_General_CI_AS NULL,
+	[OKTMO] [nvarchar](11) COLLATE Cyrillic_General_CI_AS NULL,
 	[UPDATEDATE] [date] NOT NULL,
 	[LANDID] [uniqueidentifier] NOT NULL,
 	[LANDGUID] [uniqueidentifier] NOT NULL,
@@ -363,7 +351,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[NDOCTYPE](
 	[NDTYPEID] [smallint] NOT NULL,
-	[NAME] [nvarchar](250) NOT NULL,
+	[NAME] [nvarchar](250) COLLATE Cyrillic_General_CI_AS NOT NULL,
  CONSTRAINT [PK_NDOCTYPE] PRIMARY KEY CLUSTERED 
 (
 	[NDTYPEID] ASC
@@ -376,9 +364,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[NORMDOC](
 	[NORMDOCID] [uniqueidentifier] NOT NULL,
-	[DOCNAME] [nvarchar](max) NULL,
+	[DOCNAME] [nvarchar](max) COLLATE Cyrillic_General_CI_AS NULL,
 	[DOCDATE] [date] NULL,
-	[DOCNUM] [nvarchar](200) NULL,
+	[DOCNUM] [nvarchar](200) COLLATE Cyrillic_General_CI_AS NULL,
 	[DOCTYPE] [smallint] NULL,
 	[DOCIMGID] [uniqueidentifier] NULL,
  CONSTRAINT [PK_NORMDOC] PRIMARY KEY CLUSTERED 
@@ -393,7 +381,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[OPERSTAT](
 	[OPERSTATID] [tinyint] NOT NULL,
-	[NAME] [nvarchar](100) NOT NULL,
+	[NAME] [nvarchar](100) COLLATE Cyrillic_General_CI_AS NOT NULL,
  CONSTRAINT [PK_OPERSTAT] PRIMARY KEY CLUSTERED 
 (
 	[OPERSTATID] ASC
@@ -406,9 +394,9 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ROOM](
 	[ROOMGUID] [uniqueidentifier] NOT NULL,
-	[FLATNUMBER] [nvarchar](50) NOT NULL,
+	[FLATNUMBER] [nvarchar](50) COLLATE Cyrillic_General_CI_AS NOT NULL,
 	[FLATTYPE] [int] NOT NULL,
-	[ROOMNUMBER] [nvarchar](50) NULL,
+	[ROOMNUMBER] [nvarchar](50) COLLATE Cyrillic_General_CI_AS NULL,
 	[ROOMTYPE] [int] NULL,
 	[REGIONCODE] [int] NOT NULL,
 	[POSTALCODE] [int] NULL,
@@ -422,8 +410,8 @@ CREATE TABLE [dbo].[ROOM](
 	[LIVESTATUS] [tinyint] NOT NULL,
 	[NORMDOC] [uniqueidentifier] NULL,
 	[OPERSTATUS] [bigint] NOT NULL,
-	[CADNUM] [nvarchar](100) NULL,
-	[ROOMCADNUM] [nvarchar](100) NULL
+	[CADNUM] [nvarchar](100) COLLATE Cyrillic_General_CI_AS NULL,
+	[ROOMCADNUM] [nvarchar](100) COLLATE Cyrillic_General_CI_AS NULL
 ) ON [PRIMARY]
 GO
 SET ANSI_NULLS ON
@@ -431,9 +419,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ROOMTYPE](
-	[SHORTNAME] [nvarchar](20) NULL,
+	[SHORTNAME] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NULL,
 	[RMTYPEID] [tinyint] NOT NULL,
-	[NAME] [nvarchar](20) NOT NULL,
+	[NAME] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NOT NULL,
  CONSTRAINT [PK_ROOMTYPE] PRIMARY KEY CLUSTERED 
 (
 	[RMTYPEID] ASC
@@ -446,8 +434,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[SOCRBASE](
 	[LEVEL] [smallint] NOT NULL,
-	[SCNAME] [nvarchar](10) NULL,
-	[SOCRNAME] [nvarchar](50) NOT NULL,
+	[SCNAME] [nvarchar](10) COLLATE Cyrillic_General_CI_AS NULL,
+	[SOCRNAME] [nvarchar](50) COLLATE Cyrillic_General_CI_AS NOT NULL,
 	[KOD_T_ST] [smallint] NOT NULL,
  CONSTRAINT [PK_SOCRBASE] PRIMARY KEY CLUSTERED 
 (
@@ -461,7 +449,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[STEAD](
 	[STEADGUID] [uniqueidentifier] NOT NULL,
-	[NUMBER] [nvarchar](500) NULL,
+	[NUMBER] [nvarchar](500) COLLATE Cyrillic_General_CI_AS NULL,
 	[REGIONCODE] [int] NOT NULL,
 	[POSTALCODE] [int] NULL,
 	[IFNSFL] [int] NULL,
@@ -480,7 +468,7 @@ CREATE TABLE [dbo].[STEAD](
 	[ENDDATE] [date] NOT NULL,
 	[NORMDOC] [uniqueidentifier] NULL,
 	[LIVESTATUS] [tinyint] NOT NULL,
-	[CADNUM] [nvarchar](100) NULL,
+	[CADNUM] [nvarchar](100) COLLATE Cyrillic_General_CI_AS NULL,
 	[DIVTYPE] [int] NOT NULL,
  CONSTRAINT [PK_STEAD] PRIMARY KEY CLUSTERED 
 (
@@ -494,11 +482,24 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[STRSTAT](
 	[STRSTATID] [tinyint] NOT NULL,
-	[NAME] [nvarchar](20) NOT NULL,
-	[SHORTNAME] [nvarchar](20) NULL,
+	[NAME] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NOT NULL,
+	[SHORTNAME] [nvarchar](20) COLLATE Cyrillic_General_CI_AS NULL,
  CONSTRAINT [PK_STRSTAT] PRIMARY KEY CLUSTERED 
 (
 	[STRSTATID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) COLLATE Cyrillic_General_CI_AS NOT NULL,
+	[ProductVersion] [nvarchar](32) COLLATE Cyrillic_General_CI_AS NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO

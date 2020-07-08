@@ -4,6 +4,84 @@
         <name>Fias.Loader.EfMsSql</name>
     </assembly>
     <members>
+        <member name="T:Fias.Loader.EfMsSql.DataContext">
+            <summary>
+            Контекст данных
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.DataContext.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.DataContext.#ctor(System.String)">
+            <summary>
+            Конструктор с передачей строки соединения
+            </summary>
+            <param name="connectionString">Строка соединения</param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.DataContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Конфигурировани БД
+            </summary>
+            <param name="optionsBuilder">Опции для билдера</param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.DataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Действия при создании модели
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.ActualStatuses">
+            <summary>
+            Статус актуальности
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.AddressObjectTypes">
+            <summary>
+            Типы адресных объектов
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.CenterStatuses">
+            <summary>
+            Статус центра
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.CurrentStatuses">
+            <summary>
+            Текущий статус
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.EstateStatuses">
+            <summary>
+            Estate
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.FlatTypes">
+            <summary>
+            Тип помещения
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.NormativeDocumentTypes">
+            <summary>
+            Тип нормативного документа
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.OperationStatuses">
+            <summary>
+            Операционный статус
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.RoomTypes">
+            <summary>
+            тип комнаты
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.StructureStatuses">
+            <summary>
+            Структурный статус
+            </summary>
+        </member>
         <member name="P:Fias.Loader.EfMsSql.DataContext.AddressObjects">
             <summary>
             Адресные объекты
@@ -17,6 +95,1183 @@
         <member name="P:Fias.Loader.EfMsSql.DataContext.Steads">
             <summary>
             Stead
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.HouseNums">
+            <summary>
+            Номера домов
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.BuildNums">
+            <summary>
+            Номера строений
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.DataContext.Houses">
+            <summary>
+            Дома
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.EfMsSql">
+            <summary>
+            Бэкенд EF core MSSQL
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Init(System.String)">
+            <summary>
+            Инициализация БД
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.ActualStatus[])">
+            <summary>
+            Вставка статусов актуальности
+            </summary>
+            <param name="status"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType[])">
+            <summary>
+            Вставка типов адресных обьектов
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.CenterStatus[])">
+            <summary>
+            Вставка статусов центра
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.CurrentStatus[])">
+            <summary>
+            Вставка статуса актуальности
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.EstateStatus[])">
+            <summary>
+            Вставка Estate
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.FlatType[])">
+            <summary>
+            Вставка типов помещений
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.NormativeDocumentType[])">
+            <summary>
+            вставка типов нормативных документов
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.OperationStatus[])">
+            <summary>
+            Вставка операционных типов
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.RoomType[])">
+            <summary>
+            Вставка типа комнаты
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.EfMsSql.Insert(VKorotenko.FiasServer.Bl.Dictionary.StructureStatus[])">
+            <summary>
+            Вставка структурных кодов
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.EfMsSql.AddressRepository">
+            <summary>
+            Репозиторий адресных объектов
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.EfMsSql.NormativeDocument">
+            <summary>
+            Репозиторий нормативных документов
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.EfMsSql.Steads">
+            <summary>
+            Репозиторий Stead
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.EfMsSql.Houses">
+            <summary>
+            Дома
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.EfMsSql.BuildNumbers">
+            <summary>
+            Номера строений
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.EfMsSql.HouseNumbers">
+            <summary>
+            Номера домов
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbActualStatus">
+            <summary>
+            Таблица статусов актуальности
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbActualStatus.ActstatId">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbActualStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbActualStatus.Get(VKorotenko.FiasServer.Bl.Dictionary.ActualStatus)">
+            <summary>
+            Получение элемента из XML
+            </summary>
+            <param name="st"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbAddressObject">
+            <summary>
+            Таблица адресных обьектов
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.AoGuid">
+            <summary>
+            AOGUID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.FormalName">
+            <summary>
+            FORMALNAME
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.RegionCode">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.AutoCode">
+            <summary>
+            AUTOCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.AreaCode">
+            <summary>
+            AREACODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.CityCode">
+            <summary>
+            CITYCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.CtarCode">
+            <summary>
+            CTARCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.PlaceCode">
+            <summary>
+            PLACECODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.PlanCode">
+            <summary>
+            PLANCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.StreetCode">
+            <summary>
+            STREETCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.ExtrCode">
+            <summary>
+            EXTRCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.SextCode">
+            <summary>
+            SEXTCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.OffName">
+            <summary>
+            OFFNAME
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.PostalCode">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.UpdateDate">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.SHORTNAMEID">
+            <summary>
+            SHORTNAMEID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.AoLevel">
+            <summary>
+            AOLEVEL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.ParentGuid">
+            <summary>
+            PARENTGUID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.AoId">
+            <summary>
+            AOID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.PrevId">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.NextId">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.Code">
+            <summary>
+            CODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.PlainCode">
+            <summary>
+            PLAINCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.ActStatus">
+            <summary>
+            ACTSTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.CentStatus">
+            <summary>
+            CENTSTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.OperStatus">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.CurrStatus">
+            <summary>
+            CURRSTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.StartDate">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.EndDate">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.LiveStatus">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObject.DivType">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbAddressObjectType">
+            <summary>
+            Таблица сокращений
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObjectType.KodTSt">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObjectType.SocrName">
+            <summary>
+            Полное имя
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObjectType.ScName">
+            <summary>
+            Сокращенное имя
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbAddressObjectType.Level">
+            <summary>
+            Уровень объекта
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbAddressObjectType.Get(VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType)">
+            <summary>
+            Получение из XML объекта
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbBuildNum.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbBuildNum.Name">
+            <summary>
+            Номер строения
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbCenterStatus">
+            <summary>
+            Таблица центра
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbCenterStatus.CenterstId">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbCenterStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbCenterStatus.Get(VKorotenko.FiasServer.Bl.Dictionary.CenterStatus)">
+            <summary>
+            Получение из XML
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbCurrentStatus">
+            <summary>
+            Таблица актуального статуса
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbCurrentStatus.CurentstId">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbCurrentStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbCurrentStatus.Get(VKorotenko.FiasServer.Bl.Dictionary.CurrentStatus)">
+            <summary>
+            Получение из XML объекта
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbEstateStatus">
+            <summary>
+            ESTSTAT
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbEstateStatus.EststatId">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbEstateStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbEstateStatus.ShortName">
+            <summary>
+            Сокращение
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbEstateStatus.Get(VKorotenko.FiasServer.Bl.Dictionary.EstateStatus)">
+            <summary>
+            Получение из XML
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbFlatType">
+            <summary>
+            Тип помещения
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbFlatType.FltypeId">
+            <summary>
+            ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbFlatType.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbFlatType.ShortName">
+            <summary>
+            Сокращение
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbFlatType.Get(VKorotenko.FiasServer.Bl.Dictionary.FlatType)">
+            <summary>
+            Получение из XML
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.ESTSTATUS">
+            <summary>
+            ESTSTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.STRUCNUM">
+            <summary>
+            STRUCNUM
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.STRSTATUS">
+            <summary>
+            STRSTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.HOUSEID">
+            <summary>
+            HOUSEID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.HOUSEGUID">
+            <summary>
+            HOUSEGUID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.AOGUID">
+            <summary>
+            AOGUID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.STATSTATUS">
+            <summary>
+            STATSTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.COUNTER">
+            <summary>
+            COUNTER
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.CADNUM">
+            <summary>
+            CADNUM
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.DIVTYPE">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.POSTALCODE">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.REGIONCODE">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.HOUSENUM_IX">
+            <summary>
+            Индекс названия дома
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouse.BUILDNUM_IX">
+            <summary>
+            Индекс строения
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbHouseNum">
+            <summary>
+            Номер дома
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouseNum.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbHouseNum.Name">
+            <summary>
+            Номер дома
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbNormativeDocument">
+            <summary>
+            Нормативный документ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbNormativeDocument.NormDocId">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbNormativeDocument.DocName">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbNormativeDocument.DocDate">
+            <summary>
+            Дата
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbNormativeDocument.DocNum">
+            <summary>
+            Номер
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbNormativeDocument.DocType">
+            <summary>
+            Тип документа
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbNormativeDocument.DocImgId">
+            <summary>
+            Изображение
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbNormativeDocumentType">
+            <summary>
+            Тип нормативного документа
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbNormativeDocumentType.NdtypeId">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbNormativeDocumentType.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbNormativeDocumentType.Get(VKorotenko.FiasServer.Bl.Dictionary.NormativeDocumentType)">
+            <summary>
+            Получение из XML
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbOperationStatus">
+            <summary>
+            Операционный статус
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbOperationStatus.OperstatId">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbOperationStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbOperationStatus.Get(VKorotenko.FiasServer.Bl.Dictionary.OperationStatus)">
+            <summary>
+            Получение из XML
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbRoomType">
+            <summary>
+            Тип комнаты
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbRoomType.RmtypeId">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbRoomType.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbRoomType.ShortName">
+            <summary>
+            Сокращение
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbRoomType.Get(VKorotenko.FiasServer.Bl.Dictionary.RoomType)">
+            <summary>
+            Получение из XML
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbStead">
+            <summary>
+            Stead
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.STEADGUID">
+            <summary>
+            STEADGUID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.Number">
+            <summary>
+            NUMBER
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.RegionCode">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.PostalCode">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.PARENTGUID">
+            <summary>
+            PARENTGUID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.STEADID">
+            <summary>
+            STEADID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.PREVID">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.NEXTID">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.OPERSTATUS">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.LIVESTATUS">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.CADNUM">
+            <summary>
+            CADNUM
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStead.DIVTYPE">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Entities.DbStructureStatus">
+            <summary>
+            STRSTAT
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStructureStatus.StrstatId">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStructureStatus.Name">
+            <summary>
+            имя
+            </summary>
+        </member>
+        <member name="P:Fias.Loader.EfMsSql.Entities.DbStructureStatus.ShortName">
+            <summary>
+            Сокращение
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Entities.DbStructureStatus.Get(VKorotenko.FiasServer.Bl.Dictionary.StructureStatus)">
+            <summary>
+            получение из XML
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Extensions.ConvertExtension">
+            <summary>
+            Расширение для конверсии из XML в объекты БД
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Extensions.ConvertExtension.Get(VKorotenko.FiasServer.Bl.Data.AddressObject)">
+            <summary>
+            Получение адресного объекта
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Extensions.ConvertExtension.Get(VKorotenko.FiasServer.Bl.Data.NormativeDocument)">
+            <summary>
+            Получение нормативного обьекта
+            </summary>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Extensions.ConvertExtension.Get(VKorotenko.FiasServer.Bl.Data.Stead)">
+            <summary>
+            Получение DbStead
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Extensions.ConvertExtension.Get(VKorotenko.FiasServer.Bl.Data.House)">
+            <summary>
+            Получение дома
+            </summary>
+            <param name="h"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Repositories.AddressRepository">
+            <summary>
+            Репозиторий адресов
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.AddressRepository.#ctor(Fias.Loader.EfMsSql.DataContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="ctx">контекст ДБ</param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.AddressRepository.Add(VKorotenko.FiasServer.Bl.Data.AddressObject)">
+            <summary>
+            Добавление
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.AddressRepository.AddRange(System.Collections.Generic.IEnumerable{VKorotenko.FiasServer.Bl.Data.AddressObject})">
+            <summary>
+            Пакетное добавление
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.AddressRepository.Get(System.Guid)">
+            <summary>
+            Получение по ключу
+            </summary>
+            <param name="key">Первичный ключ</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.AddressRepository.All">
+            <summary>
+            Все элементы
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.AddressRepository.Where(System.Func{VKorotenko.FiasServer.Bl.Data.AddressObject,System.Boolean})">
+            <summary>
+            Запрос по функции
+            </summary>
+            <param name="query">LINQ функция для фильтрации</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.AddressRepository.Truncate">
+            <summary>
+            Усечение таблицы
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Repositories.BuildNumbersRepository">
+            <summary>
+            Репозиторий строений
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.BuildNumbersRepository.#ctor(Fias.Loader.EfMsSql.DataContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.BuildNumbersRepository.Add(VKorotenko.FiasServer.Bl.Data.BuildNum)">
+            <summary>
+            Добавление элемента
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.BuildNumbersRepository.AddRange(System.Collections.Generic.IEnumerable{VKorotenko.FiasServer.Bl.Data.BuildNum})">
+            <summary>
+            Добавление элементов
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.BuildNumbersRepository.Get(System.Int16)">
+            <summary>
+            Получаем элемент по ключу
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.BuildNumbersRepository.All">
+            <summary>
+            Все элементы
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.BuildNumbersRepository.Where(System.Func{VKorotenko.FiasServer.Bl.Data.BuildNum,System.Boolean})">
+            <summary>
+            Запрос по выражению
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.BuildNumbersRepository.Truncate">
+            <summary>
+            Усечение таблицы
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Repositories.HouseNumbersRepository">
+            <summary>
+            Словарь для номеров дома.
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseNumbersRepository.#ctor(Fias.Loader.EfMsSql.DataContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseNumbersRepository.Add(VKorotenko.FiasServer.Bl.Data.HouseNum)">
+            <summary>
+            Добавление элемента
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseNumbersRepository.AddRange(System.Collections.Generic.IEnumerable{VKorotenko.FiasServer.Bl.Data.HouseNum})">
+            <summary>
+            Добавление массива элементов
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseNumbersRepository.Get(System.Int32)">
+            <summary>
+            Получение по индексу
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseNumbersRepository.All">
+            <summary>
+            Все элементы
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseNumbersRepository.Where(System.Func{VKorotenko.FiasServer.Bl.Data.HouseNum,System.Boolean})">
+            <summary>
+            Поиск по выражению
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseNumbersRepository.Truncate">
+            <summary>
+            Обрезание таблицы
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Repositories.HouseRepository">
+            <summary>
+            Репозиторий домов
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseRepository.#ctor(Fias.Loader.EfMsSql.DataContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseRepository.Add(VKorotenko.FiasServer.Bl.Data.House)">
+            <summary>
+            Добавить элемент
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseRepository.AddRange(System.Collections.Generic.IEnumerable{VKorotenko.FiasServer.Bl.Data.House})">
+            <summary>
+            Добавить элементы
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseRepository.Get(System.Guid)">
+            <summary>
+            Получить по ключу
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseRepository.All">
+            <summary>
+            Все элементы
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseRepository.Where(System.Func{VKorotenko.FiasServer.Bl.Data.House,System.Boolean})">
+            <summary>
+            Запрос по выражению
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.HouseRepository.Truncate">
+            <summary>
+            Усечение таблицы
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Repositories.NormativeDocumentRepository">
+            <summary>
+            Нормативные документы
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.NormativeDocumentRepository.#ctor(Fias.Loader.EfMsSql.DataContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="ctx">Контекст ДБ</param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.NormativeDocumentRepository.Add(VKorotenko.FiasServer.Bl.Data.NormativeDocument)">
+            <summary>
+            Добавление
+            </summary>
+            <param name="item">элемент</param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.NormativeDocumentRepository.AddRange(System.Collections.Generic.IEnumerable{VKorotenko.FiasServer.Bl.Data.NormativeDocument})">
+            <summary>
+            Добавление нескольких элементов
+            </summary>
+            <param name="items">Список элементов</param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.NormativeDocumentRepository.Get(System.Guid)">
+            <summary>
+            Получение по первичному ключу
+            </summary>
+            <param name="key">Ключ</param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.NormativeDocumentRepository.All">
+            <summary>
+            Все элементы
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.NormativeDocumentRepository.Where(System.Func{VKorotenko.FiasServer.Bl.Data.NormativeDocument,System.Boolean})">
+            <summary>
+            Получение по LINQ выражению
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.NormativeDocumentRepository.Truncate">
+            <summary>
+            Усечение таблицы
+            </summary>
+        </member>
+        <member name="T:Fias.Loader.EfMsSql.Repositories.SteadRepository">
+            <summary>
+            Репозиторий SteadRepository
+            </summary>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.SteadRepository.#ctor(Fias.Loader.EfMsSql.DataContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="ctx">Контекст БД</param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.SteadRepository.Add(VKorotenko.FiasServer.Bl.Data.Stead)">
+            <summary>
+            Добавление
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.SteadRepository.AddRange(System.Collections.Generic.IEnumerable{VKorotenko.FiasServer.Bl.Data.Stead})">
+            <summary>
+            Добавление списка элементов
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.SteadRepository.All">
+            <summary>
+            Все элементы
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.SteadRepository.Get(System.Guid)">
+            <summary>
+            Получение по первичному ключу
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.SteadRepository.Where(System.Func{VKorotenko.FiasServer.Bl.Data.Stead,System.Boolean})">
+            <summary>
+            Получение по LINQ функции
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fias.Loader.EfMsSql.Repositories.SteadRepository.Truncate">
+            <summary>
+            Обрезка таблицы
             </summary>
         </member>
     </members>

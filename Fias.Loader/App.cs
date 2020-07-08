@@ -36,9 +36,16 @@ namespace Fias.Loader
         private List<AddressObject> _address;
         private List<NormativeDocument> _normDocs;
         private HashSet<Guid> _normDocIds;
+        private List<House> _houses;
+        private HashSet<HouseNum> _houseNums;
+        private HashSet<string> _houseNumsNames;
+        private List<BuildNum> _buildNum;
+        private List<string> _buildNumNames;
         private readonly DateTime _start = DateTime.Now;
         private HashSet<Stead> _stead;
         private HashSet<Guid> _steadIds;
+        private const string HouseNumFile = "housenum.csv";
+        private const string BuildNumFile = "builnum.csv";
 
         /// <summary>
         /// Конструктор приложения 
@@ -77,6 +84,9 @@ namespace Fias.Loader
                         case Stead.Start:
                             await ProcessStead();
                             break;
+                        case House.Start:
+                            await ProcessHouse();
+                            break;
                         default:
                             _logger.LogError("Пустой список таблиц для обработки.");
                             return;
@@ -85,6 +95,150 @@ namespace Fias.Loader
             }
         }
 
+        #region Обработка домов
+
+        private async Task ProcessHouse()
+        {
+            _houses = new List<House>();
+            _buildNumNames = new List<string>();
+            _houseNumsNames = new HashSet<string>();
+            if (File.Exists(HouseNumFile) && File.Exists(BuildNumFile))
+            {
+                _buildNumNames.AddRange(File.ReadAllLines(BuildNumFile));
+                var houses = File.ReadAllLines(HouseNumFile);
+                foreach (var house in houses)
+                {
+                    _houseNumsNames.Add(house);
+                }
+                HouseComplete(this, new EventArgs());
+            }
+            else
+            {
+                _logger.LogInformation(DateTime.Now + " Start House dict");
+                var proc = new HouseProcessor(_appConfig.FullPath);
+                proc.Complete += HouseComplete;
+                proc.ItemParsed += OnHouseParsed;
+                Console.WriteLine();
+                await proc.RunDictionary();
+            }
+        }
+        private void OnHouseParsed(object sender, HouseEventArgs args)
+        {
+            _houses.Add(args.Item);
+            if (_houses.Count % 10000 != 0) return;
+            InsertHouse();
+            var now = DateTime.Now;
+            var top = Console.CursorTop;
+            Console.SetCursorPosition(0, top - 1);
+            Console.WriteLine($"{(now - _start).TotalSeconds:N1} s. Process: {(args.Count + 1):N0}");
+        }
+        private void HouseComplete(object sender, EventArgs args)
+        {
+            InsertHouse();
+
+            var builds = _buildNumNames.Select(name => new BuildNum { Name = name });
+            _back.BuildNumbers.Truncate();
+            
+            _back.BuildNumbers.AddRange(builds);
+
+            File.WriteAllLines(BuildNumFile, _buildNumNames);
+            File.WriteAllLines(HouseNumFile, _houseNumsNames.ToArray());
+            var i = 1;
+            var houses = _houseNumsNames.Select(name => new HouseNum() { Id = i++, Name = name }).ToList();
+            _back.HouseNumbers.Truncate();
+            try
+            {
+                _back.HouseNumbers.AddRange(houses);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+
+
+
+            _logger.LogInformation(DateTime.Now + " End House dict");
+
+            _logger.LogInformation(DateTime.Now + " Start House ");
+            _buildNumNames.Clear();
+            _houseNumsNames.Clear();
+
+            _buildNum = _back.BuildNumbers.All().ToList();
+            _houseNums = _back.HouseNumbers.All().ToHashSet();
+
+            _houses = new List<House>();
+            var proc = new HouseProcessor(_appConfig.FullPath);
+            proc.Complete += HouseFullComplete;
+            proc.ItemParsed += OnHouseFullParsed;
+            Console.WriteLine();
+            proc.Run().Wait();
+        }
+
+        private void OnHouseFullParsed(object sender, HouseEventArgs args)
+        {
+            _houses.Add(args.Item);
+            if (_houses.Count % 10000 != 0) return;
+            InsertFullHouse();
+            var now = DateTime.Now;
+            var top = Console.CursorTop;
+            Console.SetCursorPosition(0, top - 1);
+            Console.WriteLine($"{(now - _start).TotalSeconds:N1} s. Process: {(args.Count + 1):N0}");
+        }
+
+        private void InsertFullHouse()
+        {
+            foreach (var house in _houses)
+            {
+                if (!string.IsNullOrWhiteSpace(house.HOUSENUM))
+                {
+                    var nn = _houseNums.FirstOrDefault(x => x.Name == house.HOUSENUM.Trim().Replace("&quot;","\""));
+                    if (nn != null)
+                        house.HOUSENUM_IX = nn.Id;
+                    else
+                        Debug.WriteLine(house.HOUSENUM);
+                }
+                if (!string.IsNullOrWhiteSpace(house.BUILDNUM))
+                {
+                    var nn = _buildNum.First(x => x.Name == house.BUILDNUM.Trim().Replace("&quot;", "\""));
+                    if (nn != null)
+                        house.BUILDNUM_IX = nn.Id;
+                    else
+                        Debug.WriteLine(house.BUILDNUM);
+                }
+            }
+            _back.Houses.AddRange(_houses);
+            _houses.Clear();
+        }
+
+        private void HouseFullComplete(object sender, EventArgs args)
+        {
+            InsertFullHouse();
+            _logger.LogInformation(DateTime.Now + " End House");
+            _buildNum.Clear();
+            _houseNums.Clear();
+        }
+
+        private void InsertHouse()
+        {
+            foreach (var house in _houses)
+            {
+                var hn = house.HOUSENUM;
+                if (!string.IsNullOrWhiteSpace(hn) && !_houseNumsNames.Contains(hn))
+                {
+                    _houseNumsNames.Add(hn);
+                }
+
+                var bn = house.BUILDNUM;
+                if (!string.IsNullOrWhiteSpace(bn) && !_buildNumNames.Contains(bn))
+                {
+                    _buildNumNames.Add(bn);
+                }
+            }
+            _houses.Clear();
+        }
+
+        #endregion
         #region Stead
         private async Task ProcessStead()
         {

@@ -47,5 +47,9 @@ namespace VKorotenko.FiasServer.Bl.Abstraction
         /// <param name="query">Поисковая функция, например: x=>x.Id == id </param>
         /// <returns></returns>
         IEnumerable<TEntity> Where(Func<TEntity, bool> query);
+        /// <summary>
+        /// Усечение таблицы.
+        /// </summary>
+        void Truncate();
     }
 }

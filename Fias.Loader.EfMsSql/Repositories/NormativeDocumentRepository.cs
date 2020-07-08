@@ -71,5 +71,12 @@ namespace Fias.Loader.EfMsSql.Repositories
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Усечение таблицы
+        /// </summary>
+        public void Truncate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

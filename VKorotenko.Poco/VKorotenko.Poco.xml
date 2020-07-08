@@ -54,6 +54,50 @@
             Вышестоящий объект, используется для вывода иерархии
             </summary>
         </member>
+        <member name="T:VKorotenko.Poco.Config">
+            <summary>
+            Файл конфигурации
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Config.FullPath">
+            <summary>
+            Путь до архива ФИАС
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Config.ConnectionString">
+            <summary>
+            Строка подключения для выбранного модуля бэкенда ДБ <see cref="P:VKorotenko.Poco.Config.DbBackEnd"/>
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Config.DbBackEnd">
+            <summary>
+            Модуль бэкенда DB
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Config.Override">
+            <summary>
+            Перезаписывать ли данные
+            </summary>
+        </member>
+        <member name="P:VKorotenko.Poco.Config.Swap">
+            <summary>
+            Перемена базы данных после загрузки
+            </summary>
+        </member>
+        <member name="M:VKorotenko.Poco.Config.Save(System.String,VKorotenko.Poco.Config)">
+            <summary>
+            Сохранение конфигурации
+            </summary>
+            <param name="path">Путь</param>
+            <param name="config">Экземпляр конфигурации</param>
+        </member>
+        <member name="M:VKorotenko.Poco.Config.Load(System.String)">
+            <summary>
+            Загрузка конфигурации
+            </summary>
+            <param name="path">Путь к файлу конфигурации</param>
+            <returns></returns>
+        </member>
         <member name="T:VKorotenko.Poco.Region">
             <summary>
             Регион для выбора

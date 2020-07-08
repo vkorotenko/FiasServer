@@ -4,6 +4,151 @@
         <name>VKorotenko.FiasServer.Bl</name>
     </assembly>
     <members>
+        <member name="T:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend">
+            <summary>
+            Интерфейс для бэкенда ДБ. Базовая реализация см. в <see cref="!:Fias.Loader.EfMsSql"/>
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Init(System.String)">
+            <summary>
+            Инициализация модуля
+            </summary>
+            <param name="connectionString">Строка соединения для данного модуля</param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.ActualStatus[])">
+            <summary>
+            Словарь статусов актуальности
+            </summary>
+            <param name="status"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType[])">
+            <summary>
+            Типы адресных объектов
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.CenterStatus[])">
+            <summary>
+            Статус центра
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.CurrentStatus[])">
+            <summary>
+            Текущий статус
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.EstateStatus[])">
+            <summary>
+            EstateStatus
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.FlatType[])">
+            <summary>
+            Тип помещения
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.NormativeDocumentType[])">
+            <summary>
+            Тип нормативного документа
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.OperationStatus[])">
+            <summary>
+            Операционный статус
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.RoomType[])">
+            <summary>
+            Тип комнаты
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Insert(VKorotenko.FiasServer.Bl.Dictionary.StructureStatus[])">
+            <summary>
+            Тип структуры
+            </summary>
+            <param name="types"></param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.AddressRepository">
+            <summary>
+            Адресные объекты
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.NormativeDocument">
+            <summary>
+            Нормативные документы
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Steads">
+            <summary>
+            Stead
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Houses">
+            <summary>
+            Дома
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.BuildNumbers">
+            <summary>
+            Номера строений
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.HouseNumbers">
+            <summary>
+            Номера домов
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Abstraction.IRepository`2">
+            <summary>
+            Интерфейс репозитория.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IRepository`2.Add(`0)">
+            <summary>
+            Добавление элемента
+            </summary>
+            <param name="item">Элемент</param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IRepository`2.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Пакетная вставка элементов
+            </summary>
+            <param name="items">Элементы</param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IRepository`2.Get(`1)">
+            <summary>
+            Получение по первичному ключу
+            </summary>
+            <param name="key">Первичный ключ</param>
+            <returns></returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IRepository`2.All">
+            <summary>
+            Все элементы в репозитории.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IRepository`2.Where(System.Func{`0,System.Boolean})">
+            <summary>
+            Поиск по функции. 
+            </summary>
+            <param name="query">Поисковая функция, например: x=>x.Id == id </param>
+            <returns></returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Abstraction.IRepository`2.Truncate">
+            <summary>
+            Усечение таблицы.
+            </summary>
+        </member>
         <member name="T:VKorotenko.FiasServer.Bl.Complete">
             <summary>
             Делегат завершения обработки
@@ -22,6 +167,12 @@
             <summary>
             Процессор адресов.
             </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.AddressProcessor.#ctor(System.String)">
+            <summary>
+            Конструктор с полным путем к архиву для обработки
+            </summary>
+            <param name="pathToZip">Архив ФИАС</param>
         </member>
         <member name="M:VKorotenko.FiasServer.Bl.AddressProcessor.Run(System.Int64)">
             <summary>
@@ -74,9 +225,1238 @@
             Адрес
             </summary>
         </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.AddressObject">
+            <summary>
+            Объект  ФИАС
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.AoGuid">
+            <summary>
+            Глобальный идентификатор в системе AOGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.FormalName">
+            <summary>
+            Формальное имя FORMALNAME
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.RegionCode">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.AutoCode">
+            <summary>
+            AUTOCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.AreaCode">
+            <summary>
+            AREACODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.CityCode">
+            <summary>
+            CITYCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.CtarCode">
+            <summary>
+            CTARCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.PlaceCode">
+            <summary>
+            PLACECODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.PlanCode">
+            <summary>
+            PLANCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.StreetCode">
+            <summary>
+            STREETCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.ExtrCode">
+            <summary>
+            EXTRCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.SextCode">
+            <summary>
+            SEXTCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.OffName">
+            <summary>
+            OFFNAME
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.PostalCode">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.UpdateDate">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.SHORTNAME">
+            <summary>
+            SHORTNAME
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.SHORTNAMEID">
+            <summary>
+            SHORTNAMEID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.AoLevel">
+            <summary>
+            AOLEVEL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.ParentGuid">
+            <summary>
+            PARENTGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.AoId">
+            <summary>
+            AOID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.PrevId">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.NextId">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.Code">
+            <summary>
+            CODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.PlainCode">
+            <summary>
+            PLAINCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.ActStatus">
+            <summary>
+            ACTSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.CentStatus">
+            <summary>
+            CENTSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.OperStatus">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.CurrStatus">
+            <summary>
+            CURRSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.StartDate">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.EndDate">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.LiveStatus">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.AddressObject.DivType">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.BuildNum">
+            <summary>
+            Номер строения
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.BuildNum.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.BuildNum.Name">
+            <summary>
+            Номер строения
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.House">
+            <summary>
+            Объект дома
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.House.Root">
+            <summary>
+            Корневой элемент в файле
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.House.Start">
+            <summary>
+            Название файла в архиве
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.House.Table">
+            <summary>
+            Таблица в БД
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.House.ContainerTag">
+            <summary>
+            Тэг в документе
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.ESTSTATUS">
+            <summary>
+            ESTSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.STRUCNUM">
+            <summary>
+            STRUCNUM
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.STRSTATUS">
+            <summary>
+            STRSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.HOUSEID">
+            <summary>
+            HOUSEID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.HOUSEGUID">
+            <summary>
+            HOUSEGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.AOGUID">
+            <summary>
+            AOGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.STATSTATUS">
+            <summary>
+            STATSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.COUNTER">
+            <summary>
+            COUNTER
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.CADNUM">
+            <summary>
+            CADNUM
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.DIVTYPE">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.POSTALCODE">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.REGIONCODE">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.HOUSENUM">
+            <summary>
+            HOUSENUM
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.HOUSENUM_IX">
+            <summary>
+            Индекс названия дома
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.BUILDNUM">
+            <summary>
+            BUILDNUM
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.House.BUILDNUM_IX">
+            <summary>
+            Индекс строения
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.House.#ctor">
+            <summary>
+            Конструктор по умолчанию
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.House.#ctor(System.String)">
+            <summary>
+            Конструктор на основе XML
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.HouseNum">
+            <summary>
+            Номер дома
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.HouseNum.Id">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.HouseNum.Name">
+            <summary>
+            Номер дома
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.HouseTags">
+            <summary>
+            Тэги для <see cref="T:VKorotenko.FiasServer.Bl.Data.House"/>
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.ESTSTATUS">
+            <summary>
+            ESTSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.STRUCNUM">
+            <summary>
+            STRUCNUM
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.STRSTATUS">
+            <summary>
+            STRSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.HOUSEID">
+            <summary>
+            HOUSEID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.HOUSEGUID">
+            <summary>
+            HOUSEGUID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.AOGUID">
+            <summary>
+            AOGUID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.STATSTATUS">
+            <summary>
+            STATSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.COUNTER">
+            <summary>
+            COUNTER
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.CADNUM">
+            <summary>
+            CADNUM
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.DIVTYPE">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.POSTALCODE">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.REGIONCODE">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.HOUSENUM_IX">
+            <summary>
+            HOUSENUM_IX
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.HOUSENUM">
+            <summary>
+            HOUSENUM
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.BUILDNUM_IX">
+            <summary>
+            BUILDNUM_IX
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.HouseTags.BUILDNUM">
+            <summary>
+            BUILDNUM
+            </summary>
+        </member>
         <member name="T:VKorotenko.FiasServer.Bl.Data.NormativeDocument">
             <summary>
             Класс нормативного документа
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocument.Root">
+            <summary>
+            Корневой элемент в файле
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocument.Start">
+            <summary>
+            Название файла в архиве
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocument.Table">
+            <summary>
+            Таблица в БД
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocument.ContainerTag">
+            <summary>
+            Тэг в документе
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.NormativeDocument.NormDocId">
+            <summary>
+            NORMDOCID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.NormativeDocument.DocName">
+            <summary>
+            DOCNAME
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.NormativeDocument.DocDate">
+            <summary>
+            DOCDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.NormativeDocument.DocNum">
+            <summary>
+            DOCNUM
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.NormativeDocument.DocType">
+            <summary>
+            DOCTYPE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.NormativeDocument.DocImgId">
+            <summary>
+            DOCIMGID
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.NormativeDocument.#ctor(System.String)">
+            <summary>
+            Загрузка XML
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.NormativeDocument.#ctor">
+            <summary>
+            Конструктор для сериализации
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.NormativeDocument.LoadXml(System.String)">
+            <summary>
+            Загрузка XML
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.NormativeDocumentTags">
+            <summary>
+            Теги в нормативных документах
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocumentTags.NORMDOCID">
+            <summary>
+            Идентификатор документа NORMDOCID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocumentTags.DOCNAME">
+            <summary>
+            Имя DOCNAME
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocumentTags.DOCDATE">
+            <summary>
+            Дата DOCDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocumentTags.DOCNUM">
+            <summary>
+            Номер DOCNUM
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocumentTags.DOCTYPE">
+            <summary>
+            Тип документа DOCTYPE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocumentTags.DOCIMGID">
+            <summary>
+            Идентификатор изображения DOCIMGID
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.Stead">
+            <summary>
+            Stead
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.Stead.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.Stead.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.Stead.Table">
+            <summary>
+            Таблица
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.Stead.ContainerTag">
+            <summary>
+            Тэг элемента
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.STEADGUID">
+            <summary>
+            STEADGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.Number">
+            <summary>
+            NUMBER
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.RegionCode">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.PostalCode">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.PARENTGUID">
+            <summary>
+            PARENTGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.STEADID">
+            <summary>
+            STEADID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.PREVID">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.NEXTID">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.OPERSTATUS">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.LIVESTATUS">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.CADNUM">
+            <summary>
+            CADNUM
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Stead.DIVTYPE">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.Stead.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.Stead.#ctor(System.String)">
+            <summary>
+            Конструктор с разбором XML
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.SteadTags">
+            <summary>
+            Теги для <see cref="T:VKorotenko.FiasServer.Bl.Data.Stead"/>
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.STEADGUID">
+            <summary>
+            STEADGUID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.NUMBER">
+            <summary>
+            NUMBER
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.REGIONCODE">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.POSTALCODE">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.PARENTGUID">
+            <summary>
+            PARENTGUID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.STEADID">
+            <summary>
+            STEADID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.PREVID">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.NEXTID">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.OPERSTATUS">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.LIVESTATUS">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.CADNUM">
+            <summary>
+            CADNUM
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.SteadTags.DIVTYPE">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.ActualStatus">
+            <summary>
+            Статус  актуальности
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.ActualStatus.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.ActualStatus.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.ActualStatus.ActstatId">
+            <summary>
+            ACTSTATID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.ActualStatus.Name">
+            <summary>
+            NAME
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType">
+            <summary>
+            Тип сокращений адресного объекта
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType.Start">
+            <summary>
+            Название файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType.KodTSt">
+            <summary>
+            Ключ сокращения
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType.SocrName">
+            <summary>
+            Полное сокращение
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType.ScName">
+            <summary>
+            Аббревиатура
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.AddressObjectType.Level">
+            <summary>
+            Зона в системе
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.CenterStatus">
+            <summary>
+            Центральный статус
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.CenterStatus.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.CenterStatus.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.CenterStatus.CenterstId">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.CenterStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.CurrentStatus">
+            <summary>
+            Текущий статус актуальности
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.CurrentStatus.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.CurrentStatus.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.CurrentStatus.CurentstId">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.CurrentStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.EstateStatus">
+            <summary>
+            Estate
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.EstateStatus.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.EstateStatus.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.EstateStatus.EststatId">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.EstateStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.EstateStatus.ShortName">
+            <summary>
+            Сокращение
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.FlatType">
+            <summary>
+            Тип помещения
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.FlatType.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.FlatType.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.FlatType.FltypeId">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.FlatType.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.FlatType.ShortName">
+            <summary>
+            Сокращение
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.NormativeDocumentType">
+            <summary>
+            Тип нормативного документа
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.NormativeDocumentType.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.NormativeDocumentType.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.NormativeDocumentType.NdtypeId">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.NormativeDocumentType.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.OperationStatus">
+            <summary>
+            Операционный статус
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.OperationStatus.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.OperationStatus.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.OperationStatus.OperstatId">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.OperationStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.RoomType">
+            <summary>
+            Тип комнаты
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.RoomType.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.RoomType.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.RoomType.RmtypeId">
+            <summary>
+            Идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.RoomType.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.RoomType.ShortName">
+            <summary>
+            Сокращение
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Dictionary.StructureStatus">
+            <summary>
+            Структурный тип
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.StructureStatus.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Dictionary.StructureStatus.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.StructureStatus.StrstatId">
+            <summary>
+            идентификатор
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.StructureStatus.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Dictionary.StructureStatus.ShortName">
+            <summary>
+            Сокращение
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.DictResult">
+            <summary>
+            Результаты обработки словарей
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.ActualStatuses">
+            <summary>
+            Статус актуальности
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.AddressObjectTypes">
+            <summary>
+            Типы адресных объектов
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.CenterStatuses">
+            <summary>
+            Статус центра
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.CurrentStatuses">
+            <summary>
+            Текущий статус
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.EstateStatuses">
+            <summary>
+            Estate
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.FlatTypes">
+            <summary>
+            Тип помещения
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.NormativeDocumentTypes">
+            <summary>
+            Тип нормативного документа
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.OperationStatuses">
+            <summary>
+            Операционный статус
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.RoomTypes">
+            <summary>
+            Тип комнаты
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.DictResult.StructureStatuses">
+            <summary>
+            Тип структуры
             </summary>
         </member>
         <member name="T:VKorotenko.FiasServer.Bl.Download.BlockCompleteArgs">
@@ -129,6 +1509,82 @@
             Путь к скачанному файлу
             </summary>
         </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.Download">
+            <summary>
+            Класс для скачивания данных с сервера ФИАС
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Download.Download.Paused">
+            <summary>
+            Остановленное состояние
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Download.Download.Stop">
+            <summary>
+            Запуск в остановленном состоянии
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Download.#ctor(VKorotenko.FiasServer.Bl.Loggers.ILogger)">
+            <summary>
+            Скачивание файла
+            </summary>
+            <param name="logger">Логгер для действий в системе</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.Download.Download.ResumablityChanged">
+            <summary>
+            Изменение статуса скачивания
+            </summary>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.Download.Download.ProgressChanged">
+            <summary>
+            Изменение скачивания
+            </summary>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.Download.Download.Completed">
+            <summary>
+            Завершение скачивания
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Download.DownloadFile(System.String,System.String)">
+            <summary>
+            Скачивание файла
+            </summary>
+            <param name="downloadLink">Что скачиваем</param>
+            <param name="path">путь где сохраняем</param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Download.Pause">
+            <summary>
+            Остановить скачивание
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Download.Resume">
+            <summary>
+            Возобновить скачивание
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Download.StopDownload">
+            <summary>
+            Остановить скачивание
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Download.OnResumabilityChanged(VKorotenko.FiasServer.Bl.Download.DownloadStatusChangedEventArgs)">
+            <summary>
+            Обработчик возобновления скачивания
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Download.OnProgressChanged(VKorotenko.FiasServer.Bl.Download.DownloadProgressChangedEventArgs)">
+            <summary>
+            Обработчик изменения состояния скачивания
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Download.OnCompleted(System.EventArgs)">
+            <summary>
+            Обработчик завершения
+            </summary>
+            <param name="e"></param>
+        </member>
         <member name="T:VKorotenko.FiasServer.Bl.Download.DownloadFileInfo">
             <summary>
                 Пакет информации о файлах
@@ -174,6 +1630,65 @@
                 Url  базы кладр в 7ZIP
             </summary>
         </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.DownloadProgressChangedEventArgs">
+            <summary>
+            Аргумент изменение процесса скачивания
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.DownloadProgressChangedEventArgs.#ctor(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="totalReceived">Всего принято</param>
+            <param name="fileSize">Размер файла</param>
+            <param name="currentSpeed">Текущая скорость</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadProgressChangedEventArgs.BytesReceived">
+            <summary>
+            Байт принято
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadProgressChangedEventArgs.TotalBytesToReceive">
+            <summary>
+            Всего для приема
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadProgressChangedEventArgs.ProgressPercentage">
+            <summary>
+            Процент скачивания
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadProgressChangedEventArgs.CurrentSpeed">
+            <summary>
+            Текущая скорость
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadProgressChangedEventArgs.TimeLeft">
+            <summary>
+            Оставщееся время
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.DownloadStatusChangedEventArgs">
+            <summary>
+            Аргумент изменения статуса скачивания
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.DownloadStatusChangedEventArgs.#ctor(System.Boolean)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="canResume">Можно ли возобновить скачивание</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Download.DownloadStatusChangedEventArgs.ResumeSupported">
+            <summary>
+            Можно ли возобновить
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.Fetcher">
+            <summary>
+            Получение информации об актуальных пакетах
+            </summary>
+        </member>
         <member name="F:VKorotenko.FiasServer.Bl.Download.Fetcher.AllUrl">
             <summary>
             Адрес полного пакета
@@ -184,17 +1699,46 @@
             Адрес последнего обновления.
             </summary>
         </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Fetcher.GetLatestAsync">
+            <summary>
+            Получение последней версии для скачивания
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Fetcher.GetAllAsync">
+            <summary>
+            Получение информации о всех скачиваниях
+            </summary>
+            <returns>Информация о скачиваемых файлах</returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.Fetcher.GetXmlDelta(VKorotenko.FiasServer.Bl.Download.DownloadFileInfo,System.String)">
+            <summary>
+            Скачивание файла с информации о файлах
+            </summary>
+            <param name="fi">Информация о скачивании</param>
+            <param name="file">Куда сохранять</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Download.RenewableClient">
+            <summary>
+            Клиент для докачки. 
+            </summary>
+        </member>
         <member name="M:VKorotenko.FiasServer.Bl.Download.RenewableClient.#ctor(System.String,System.String)">
             <summary>
-            
+            Конструктор клиента
             </summary>
-            <param name="path"></param>
-            <param name="url"></param>
+            <param name="path">Путь куда закачивать</param>
+            <param name="url">Адрес что скачиваем</param>
         </member>
         <member name="P:VKorotenko.FiasServer.Bl.Download.RenewableClient.DropAfter">
             <summary>
             Прекратить попытки скачивания после заданного числа ошибок.
             Значение по умолчанию 10. Увеличите количество при нестабильности сервера.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Download.RenewableClient.Dispose">
+            <summary>
+            Очистка ресурсов
             </summary>
         </member>
         <member name="E:VKorotenko.FiasServer.Bl.Download.RenewableClient.Complete">
@@ -216,8 +1760,8 @@
             <summary>
             Делегат завершения скачивания
             </summary>
-            <param name="sender"></param>
-            <param name="args"></param>
+            <param name="sender">Отправитель</param>
+            <param name="args">Аргументы</param>
         </member>
         <member name="T:VKorotenko.FiasServer.Bl.Download.BlockComplete">
             <summary>
@@ -226,11 +1770,51 @@
             <param name="sender">Отправитель</param>
             <param name="args">Параметры скачанного блока</param>
         </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Extensions.StringExtension">
+            <summary>
+            Методы для обработки XML
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Extensions.StringExtension.ToNullDateTime(System.String)">
+            <summary>
+            Парсинг строки с датой 
+            </summary>
+            <param name="src">Источник</param>
+            <returns></returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Extensions.StringExtension.ToNullGuid(System.String)">
+            <summary>
+            Обнуляемый Guid
+            </summary>
+            <param name="src">Источник</param>
+            <returns></returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Extensions.StringExtension.ToNullShort(System.String)">
+            <summary>
+            Обнуляемый short
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
         <member name="M:VKorotenko.FiasServer.Bl.Extensions.StringExtension.GetCurStatus(System.String)">
             <summary>
             Попытка обработать статус, 0 если пустая строка
             </summary>
-            <param name="conv"></param>
+            <param name="conv">Источник</param>
+            <returns></returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Extensions.StringExtension.ToNullInt(System.String)">
+            <summary>
+            Обнуляемое целое
+            </summary>
+            <param name="val">Источник</param>
+            <returns></returns>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Extensions.StringExtension.ToNullLong(System.String)">
+            <summary>
+            Обнуляемый long
+            </summary>
+            <param name="val">Источник</param>
             <returns></returns>
         </member>
         <member name="T:VKorotenko.FiasServer.Bl.FileProcessor">
@@ -243,9 +1827,172 @@
             Результаты обработки словарей
             </summary>
         </member>
+        <member name="M:VKorotenko.FiasServer.Bl.FileProcessor.#ctor(System.String,VKorotenko.FiasServer.Bl.Loggers.ILogger)">
+            <summary>
+            Обработчик словарей
+            </summary>
+            <param name="fiasZipPath">Полный путь к архиву ФИАС</param>
+            <param name="logger"></param>
+        </member>
         <member name="M:VKorotenko.FiasServer.Bl.FileProcessor.Run">
             <summary>
             Запуск обработки
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.HouseEventArgs">
+            <summary>
+            Аргументы для обработки дома
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.HouseEventArgs.#ctor(VKorotenko.FiasServer.Bl.Data.House,System.Int64)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="item">Элемент</param>
+            <param name="count">Количество уже обработанных</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.HouseEventArgs.Item">
+            <summary>
+            Документ
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.HouseEventArgs.Count">
+            <summary>
+            Количество уже обработанных
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.HouseParsed">
+            <summary>
+            Делегат обработки дома
+            </summary>
+            <param name="sender">Отправитель</param>
+            <param name="args">Параметры</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.HouseProcessor">
+            <summary>
+            Обработчик для домов
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.HouseProcessor.NodeName">
+            <summary>
+            Имя обрабатываемого файла.
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.HouseProcessor.Count">
+            <summary>
+            Число обработанных элементов.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.HouseProcessor.#ctor(System.String)">
+            <summary>
+            процессор <see cref="T:VKorotenko.FiasServer.Bl.Data.House"/>
+            </summary>
+            <param name="pathToZip">Путь к файлу ФИАС</param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.HouseProcessor.Run(System.Int64)">
+            <summary>
+            Запуск обработки файла
+            </summary>
+            <param name="take">Количество обрабатываемых записей</param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.HouseProcessor.RunDictionary(System.Int64)">
+            <summary>
+            Заполнение словарей
+            </summary>
+            <param name="take"></param>
+            <returns></returns>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.HouseProcessor.ItemParsed">
+            <summary>
+            Событие обработки Stead.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.HouseProcessor.OnItemParsed(System.Object,VKorotenko.FiasServer.Bl.Data.House)">
+            <summary>
+            Обработчик добавления Stead.
+            </summary>
+            <param name="s">Отправитель</param>
+            <param name="item">Обработанный документ</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.HouseProcessor.Complete">
+            <summary>
+            Событие завершения обработки.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.HouseProcessor.OnComplete(System.Object)">
+            <summary>
+            Обработчик конца обработки файла.
+            </summary>
+            <param name="s">Отправитель</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Loggers.ConsoleLogger">
+            <summary>
+            Логгер с выводом на консоль
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Loggers.ConsoleLogger.LogMessage(System.String,System.Object[])">
+            <summary>
+            Вывод на консоль
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="args">Объекты форматирования</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Loggers.DebugLogger">
+            <summary>
+            логгер с выводом в консоль отладки
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Loggers.DebugLogger.LogMessage(System.String,System.Object[])">
+            <summary>
+            Вывод в отладку
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="args">Параметры форматирования</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Loggers.ILogger">
+            <summary>
+            Интерфейс логгера
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Loggers.ILogger.LogMessage(System.String,System.Object[])">
+            <summary>
+            Вывод сообщения
+            </summary>
+            <param name="message">Сообщение</param>
+            <param name="args">параметры</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Loggers.NullLogger">
+            <summary>
+            Ничего не делающий логгер
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Loggers.NullLogger.LogMessage(System.String,System.Object[])">
+            <summary>
+            Ничего
+            </summary>
+            <param name="message">сообщение</param>
+            <param name="args">аргументы</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.NormativeDocumentEventArgs">
+            <summary>
+            Аргумент для парсинга документа
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.NormativeDocumentEventArgs.#ctor(VKorotenko.FiasServer.Bl.Data.NormativeDocument,System.Int64)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="doc">Документ</param>
+            <param name="count">Общее количество обработанных элементов</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.NormativeDocumentEventArgs.Document">
+            <summary>
+            Документ
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.NormativeDocumentEventArgs.Count">
+            <summary>
+            Общее количество обработанных элементов
             </summary>
         </member>
         <member name="T:VKorotenko.FiasServer.Bl.DocumentParsed">
@@ -255,10 +2002,21 @@
             <param name="sender">Отправитель</param>
             <param name="args">Параметры</param>
         </member>
+        <member name="T:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor">
+            <summary>
+            Парсер нормативных документов
+            </summary>
+        </member>
         <member name="P:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.NodeName">
             <summary>
             Имя обрабатываемого файла.
             </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.#ctor(System.String)">
+            <summary>
+            Процессор нормативных документов
+            </summary>
+            <param name="pathToZip"></param>
         </member>
         <member name="M:VKorotenko.FiasServer.Bl.NormativeDocumentProcessor.Run(System.Int64)">
             <summary>
@@ -289,6 +2047,466 @@
             </summary>
             <param name="s">Отправитель</param>
         </member>
+        <member name="T:VKorotenko.FiasServer.Bl.PureData.AddressTag">
+            <summary>
+            Теги адреса
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.AOGUID">
+            <summary>
+            AOGUID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.FORMALNAME">
+            <summary>
+            FORMALNAME
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.REGIONCODE">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.AUTOCODE">
+            <summary>
+            AUTOCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.AREACODE">
+            <summary>
+            AREACODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.CITYCODE">
+            <summary>
+            CITYCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.CTARCODE">
+            <summary>
+            CTARCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.PLACECODE">
+            <summary>
+            PLACECODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.PLANCODE">
+            <summary>
+            PLANCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.STREETCODE">
+            <summary>
+            STREETCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.EXTRCODE">
+            <summary>
+            EXTRCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.SEXTCODE">
+            <summary>
+            SEXTCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.OFFNAME">
+            <summary>
+            OFFNAME
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.POSTALCODE">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.SHORTNAME">
+            <summary>
+            SHORTNAME
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.SHORTNAMEID">
+            <summary>
+            SHORTNAMEID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.AOLEVEL">
+            <summary>
+            AOLEVEL
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.PARENTGUID">
+            <summary>
+            PARENTGUID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.AOID">
+            <summary>
+            AOID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.PREVID">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.NEXTID">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.CODE">
+            <summary>
+            CODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.PLAINCODE">
+            <summary>
+            PLAINCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.ACTSTATUS">
+            <summary>
+            ACTSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.CENTSTATUS">
+            <summary>
+            CENTSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.OPERSTATUS">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.CURRSTATUS">
+            <summary>
+            CURRSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.LIVESTATUS">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.AddressTag.DIVTYPE">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject">
+            <summary>
+            Адресный обьект
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.#ctor">
+            <summary>
+            Конструктор для сериализации
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.#ctor(System.String)">
+            <summary>
+            Конструктор для десириализации
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.Root">
+            <summary>
+            Корневой элемент
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.Start">
+            <summary>
+            Имя файла
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.Table">
+            <summary>
+            Таблица
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.ContainerTag">
+            <summary>
+            Тэг элемента
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.AoGuid">
+            <summary>
+            AOGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.FormalName">
+            <summary>
+            FORMALNAME
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.RegionCode">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.AutoCode">
+            <summary>
+            AUTOCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.AreaCode">
+            <summary>
+            AREACODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.CityCode">
+            <summary>
+            CITYCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.CtarCode">
+            <summary>
+            CTARCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.PlaceCode">
+            <summary>
+            PLACECODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.PlanCode">
+            <summary>
+            PLANCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.StreetCode">
+            <summary>
+            STREETCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.ExtrCode">
+            <summary>
+            EXTRCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.SextCode">
+            <summary>
+            SEXTCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.OffName">
+            <summary>
+            OFFNAME
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.PostalCode">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.IFNSFL">
+            <summary>
+            IFNSFL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.TERRIFNSFL">
+            <summary>
+            TERRIFNSFL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.IFNSUL">
+            <summary>
+            IFNSUL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.TERRIFNSUL">
+            <summary>
+            TERRIFNSUL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.OKATO">
+            <summary>
+            OKATO
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.OKTMO">
+            <summary>
+            OKTMO
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.UpdateDate">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.SHORTNAME">
+            <summary>
+            SHORTNAME
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.SHORTNAMEID">
+            <summary>
+            SHORTNAMEID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.AoLevel">
+            <summary>
+            AOLEVEL
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.ParentGuid">
+            <summary>
+            PARENTGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.AoId">
+            <summary>
+            AOID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.PrevId">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.NextId">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.Code">
+            <summary>
+            CODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.PlainCode">
+            <summary>
+            PLAINCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.ActStatus">
+            <summary>
+            ACTSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.CentStatus">
+            <summary>
+            CENTSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.OperStatus">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.CurrStatus">
+            <summary>
+            CURRSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.StartDate">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.EndDate">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.LiveStatus">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.DivType">
+            <summary>
+            DIVTYPE
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.PureData.XmlAddressObject.Get(VKorotenko.FiasServer.Bl.PureData.XmlAddressObject)">
+            <summary>
+            Получение из XML
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.SteadEventArgs">
+            <summary>
+            Аргументы для <see cref="T:VKorotenko.FiasServer.Bl.Data.Stead"/>
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.SteadEventArgs.#ctor(VKorotenko.FiasServer.Bl.Data.Stead,System.Int64)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="doc">Документ</param>
+            <param name="count">Количество уже обработанных</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.SteadEventArgs.Document">
+            <summary>
+            Документ
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.SteadEventArgs.Count">
+            <summary>
+            Количество уже обработанных
+            </summary>
+        </member>
         <member name="T:VKorotenko.FiasServer.Bl.SteadParsed">
             <summary>
             Делегат обработки документа
@@ -296,10 +2514,21 @@
             <param name="sender">Отправитель</param>
             <param name="args">Параметры</param>
         </member>
+        <member name="T:VKorotenko.FiasServer.Bl.SteadProcessor">
+            <summary>
+            Обработчик для <see cref="T:VKorotenko.FiasServer.Bl.Data.Stead"/>
+            </summary>
+        </member>
         <member name="P:VKorotenko.FiasServer.Bl.SteadProcessor.NodeName">
             <summary>
             Имя обрабатываемого файла.
             </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.SteadProcessor.#ctor(System.String)">
+            <summary>
+            процессор <see cref="T:VKorotenko.FiasServer.Bl.Data.Stead"/>
+            </summary>
+            <param name="pathToZip"></param>
         </member>
         <member name="M:VKorotenko.FiasServer.Bl.SteadProcessor.Run(System.Int64)">
             <summary>

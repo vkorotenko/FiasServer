@@ -1,56 +1,66 @@
 ﻿#region License
+
 // // Разработано: Коротенко Владимиром Николаевичем (Vladimir N. Korotenko)
 // // email: koroten@ya.ru
 // // skype:vladimir-korotenko
 // // https://vkorotenko.ru
-// // Создано:  01.07.2020 9:40
+// // Создано:  05.07.2020 10:05
+
 #endregion
 
-using Fias.Loader.EfMsSql.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Fias.Loader.EfMsSql.Entities;
+using Fias.Loader.EfMsSql.Extensions;
 using VKorotenko.FiasServer.Bl.Abstraction;
 using VKorotenko.FiasServer.Bl.Data;
 
 namespace Fias.Loader.EfMsSql.Repositories
 {
     /// <summary>
-    /// Репозиторий адресов
+    /// Репозиторий домов
     /// </summary>
-    public class AddressRepository : IRepository<AddressObject, Guid>
+    public class HouseRepository : IRepository<House, Guid>
     {
-        private DataContext _ctx;
+        private readonly DataContext _ctx;
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="ctx">контекст ДБ</param>
-        public AddressRepository(DataContext ctx)
+        /// <param name="ctx"></param>
+        public HouseRepository(DataContext ctx)
         {
             _ctx = ctx;
         }
         /// <summary>
-        /// Добавление
+        /// Добавить элемент
         /// </summary>
         /// <param name="item"></param>
-        public void Add(AddressObject item)
+        public void Add(House item)
         {
             throw new NotImplementedException();
         }
         /// <summary>
-        /// Пакетное добавление
+        /// Добавить элементы
         /// </summary>
         /// <param name="items"></param>
-        public void AddRange(IEnumerable<AddressObject> items)
+        public void AddRange(IEnumerable<House> items)
         {
-            _ctx.AddressObjects.BulkMerge(items.Select(addressObject => addressObject.Get()));
+            try
+            {
+                _ctx.Houses.BulkMerge(items.Select(n => n.Get()), o => o.ColumnPrimaryKeyExpression = c => c.HOUSEID);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
         /// <summary>
-        /// Получение по ключу
+        /// Получить по ключу
         /// </summary>
-        /// <param name="key">Первичный ключ</param>
+        /// <param name="key"></param>
         /// <returns></returns>
-        public AddressObject Get(Guid key)
+        public House Get(Guid key)
         {
             throw new NotImplementedException();
         }
@@ -58,16 +68,16 @@ namespace Fias.Loader.EfMsSql.Repositories
         /// Все элементы
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<AddressObject> All()
+        public IEnumerable<House> All()
         {
             throw new NotImplementedException();
         }
         /// <summary>
-        /// Запрос по функции
+        /// Запрос по выражению
         /// </summary>
-        /// <param name="query">LINQ функция для фильтрации</param>
+        /// <param name="query"></param>
         /// <returns></returns>
-        public IEnumerable<AddressObject> Where(Func<AddressObject, bool> query)
+        public IEnumerable<House> Where(Func<House, bool> query)
         {
             throw new NotImplementedException();
         }

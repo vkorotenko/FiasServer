@@ -42,6 +42,11 @@ namespace Fias.Loader.EfMsSql
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // modelBuilder.Entity<AddressWorks>().HasKey(sc => new { sc.AddressId, sc.LicenseWorkId });
+            // modelBuilder.UseCollation("SQL_Latin1_General_CP1_CS_AS");
+
+            
+
+            // modelBuilder.Entity<Customer>().Property(c => c.Name).UseCollation("SQL_Latin1_General_CP1_CI_AS");
         }
         /// <summary>
         /// Статус актуальности
@@ -95,5 +100,17 @@ namespace Fias.Loader.EfMsSql
         /// Stead
         /// </summary>
         public DbSet<DbStead> Steads { get; set; }
+        /// <summary>
+        /// Номера домов
+        /// </summary>
+        public DbSet<DbHouseNum> HouseNums { get; set; }
+        /// <summary>
+        /// Номера строений
+        /// </summary>
+        public DbSet<DbBuildNum> BuildNums { get; set; }
+        /// <summary>
+        /// Дома
+        /// </summary>
+        public DbSet<DbHouse> Houses { get; set; }
     }
 }

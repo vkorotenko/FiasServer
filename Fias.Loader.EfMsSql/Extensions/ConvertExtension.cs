@@ -124,5 +124,49 @@ namespace Fias.Loader.EfMsSql.Extensions
                 UPDATEDATE = s.UPDATEDATE
             };
         }
+        /// <summary>
+        /// Получение дома
+        /// </summary>
+        /// <param name="h"></param>
+        /// <returns></returns>
+        public static DbHouse Get(this House h)
+        {
+            if (h.CADNUM?.Length > 200)
+            {
+                ;
+            }
+            if (h.STRUCNUM?.Length > 10)
+            {
+                ;
+            }
+            return new DbHouse
+            {
+                AOGUID = h.AOGUID,
+                BUILDNUM_IX =  h.BUILDNUM_IX,
+                CADNUM = h.CADNUM,
+                COUNTER = h.COUNTER,
+                DIVTYPE = h.DIVTYPE,
+                ENDDATE = h.ENDDATE,
+                IFNSUL = h.IFNSUL.ToNullShort(),
+                ESTSTATUS = h.ESTSTATUS,
+                HOUSEGUID = h.HOUSEGUID,
+                HOUSEID = h.HOUSEID,
+                OKATO = h.OKATO.ToNullLong(),
+                OKTMO = h.OKTMO.ToNullLong(),
+                TERRIFNSUL = h.TERRIFNSUL.ToNullShort(),
+                NORMDOC = h.NORMDOC.ToNullGuid(),
+                IFNSFL = h.IFNSFL.ToNullShort(),
+                TERRIFNSFL = h.TERRIFNSFL.ToNullShort(),
+                HOUSENUM_IX = h.HOUSENUM_IX,
+                UPDATEDATE = h.UPDATEDATE,
+                STARTDATE = h.STARTDATE,
+                STRSTATUS = h.STRSTATUS.GetCurStatus(),
+                REGIONCODE = h.REGIONCODE.ToNullShort(),
+                POSTALCODE = h.POSTALCODE.ToNullInt(),
+                STATSTATUS = h.STATSTATUS,
+                STRUCNUM = h.STRUCNUM,
+
+            };
+        }
     }
 }
