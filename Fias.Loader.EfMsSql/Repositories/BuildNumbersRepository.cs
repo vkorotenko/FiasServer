@@ -48,7 +48,7 @@ namespace Fias.Loader.EfMsSql.Repositories
         public void AddRange(IEnumerable<BuildNum> items)
         {
             var list = items.Select(item => new DbBuildNum() { Name = item.Name });
-            _ctx.BuildNums.BulkMerge(list, options =>
+            _ctx.BuildNums.BulkInsert(list, options =>
             {
                 options.ColumnPrimaryKeyExpression = c => c.Name;
                 options.CaseSensitive = CaseSensitiveType.Sensitive;

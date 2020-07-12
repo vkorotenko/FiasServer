@@ -103,6 +103,10 @@ namespace VKorotenko.FiasServer.Bl.Abstraction
         /// Номера домов
         /// </summary>
         IRepository<HouseNum, int> HouseNumbers { get; }
+        /// <summary>
+        /// Репозиторий комнат
+        /// </summary>
+        IRepository<Room, Guid> Rooms { get; }
         #endregion
     }
 }

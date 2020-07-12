@@ -112,5 +112,9 @@ namespace Fias.Loader.EfMsSql
         /// Дома
         /// </summary>
         public DbSet<DbHouse> Houses { get; set; }
+        /// <summary>
+        /// Комнаты
+        /// </summary>
+        public DbSet<DbRoom> Rooms { get; set; }
     }
 }

@@ -46,6 +46,7 @@ namespace Fias.Loader
         private HashSet<Guid> _steadIds;
         private const string HouseNumFile = "housenum.csv";
         private const string BuildNumFile = "builnum.csv";
+        private HashSet<Room> _room;
 
         /// <summary>
         /// Конструктор приложения 
@@ -87,6 +88,9 @@ namespace Fias.Loader
                         case House.Start:
                             await ProcessHouse();
                             break;
+                        case Room.Start:
+                            await ProcessRoom();
+                            break;
                         default:
                             _logger.LogError("Пустой список таблиц для обработки.");
                             return;
@@ -94,6 +98,44 @@ namespace Fias.Loader
                 }
             }
         }
+
+        #region Обработка комнат
+
+        private async Task ProcessRoom()
+        {
+            _logger.LogInformation(DateTime.Now + " Start Room");
+            var proc = new RoomProcessor(_appConfig.FullPath);
+            _room = new HashSet<Room>();
+            proc.Complete += RoomComplete;
+            proc.ItemParsed += OnRoomParsed;
+            Console.WriteLine();
+            await proc.Run();
+        }
+
+        private void OnRoomParsed(object sender, RoomEventArgs args)
+        {
+            _room.Add(args.Item);
+            if (_room.Count % 10000 != 0) return;
+            InsertRoom();
+            var now = DateTime.Now;
+            var top = Console.CursorTop;
+            Console.SetCursorPosition(0, top - 1);
+            Console.WriteLine($"{(now - _start).TotalSeconds:N1} s. Process: {(args.Count + 1):N0}");
+        }
+
+        private void RoomComplete(object sender, EventArgs args)
+        {
+            InsertRoom();
+            _logger.LogInformation(DateTime.Now + " End Room");
+        }
+        private void InsertRoom()
+        {
+            _back.Rooms.AddRange(_room);
+            _room.Clear();
+        }
+
+        #endregion
+
 
         #region Обработка домов
 
@@ -138,7 +180,7 @@ namespace Fias.Loader
 
             var builds = _buildNumNames.Select(name => new BuildNum { Name = name });
             _back.BuildNumbers.Truncate();
-            
+
             _back.BuildNumbers.AddRange(builds);
 
             File.WriteAllLines(BuildNumFile, _buildNumNames);
@@ -155,9 +197,6 @@ namespace Fias.Loader
                 Debug.WriteLine(e.Message);
             }
 
-
-
-
             _logger.LogInformation(DateTime.Now + " End House dict");
 
             _logger.LogInformation(DateTime.Now + " Start House ");
@@ -172,6 +211,7 @@ namespace Fias.Loader
             proc.Complete += HouseFullComplete;
             proc.ItemParsed += OnHouseFullParsed;
             Console.WriteLine();
+            _back.Houses.Truncate();
             proc.Run().Wait();
         }
 
@@ -192,7 +232,7 @@ namespace Fias.Loader
             {
                 if (!string.IsNullOrWhiteSpace(house.HOUSENUM))
                 {
-                    var nn = _houseNums.FirstOrDefault(x => x.Name == house.HOUSENUM.Trim().Replace("&quot;","\""));
+                    var nn = _houseNums.FirstOrDefault(x => x.Name == house.HOUSENUM.Trim().Replace("&quot;", "\""));
                     if (nn != null)
                         house.HOUSENUM_IX = nn.Id;
                     else

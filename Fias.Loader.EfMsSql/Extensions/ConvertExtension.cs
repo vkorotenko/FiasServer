@@ -168,5 +168,56 @@ namespace Fias.Loader.EfMsSql.Extensions
 
             };
         }
+
+        /// <summary>
+        /// Получение комнаты
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
+        public static DbRoom Get(this Room r)
+        {
+            if (r.CADNUM?.Length > 100)
+            {
+                ;
+            }
+
+            if (r.ROOMCADNUM?.Length > 100)
+            {
+                ;
+            }
+
+            r.FLATNUMBER = r.FLATNUMBER.Replace("&quot;", "\"");
+            if (r.FLATNUMBER?.Length > 50)
+            {
+                ;
+            }
+
+            if (r.ROOMNUMBER?.Length > 50)
+            {
+                ;
+            }
+            return new DbRoom()
+            {
+                NORMDOC = r.NORMDOC.ToNullGuid(),
+                CADNUM = r.CADNUM,
+                ENDDATE = r.ENDDATE,
+                FLATNUMBER = r.FLATNUMBER,
+                FLATTYPE = r.FLATTYPE,
+                HOUSEGUID = r.HOUSEGUID,
+                LIVESTATUS = r.LIVESTATUS.GetCurStatus(),
+                NEXTID = r.NEXTID.ToNullGuid(),
+                OPERSTATUS = r.OPERSTATUS,
+                POSTALCODE = r.POSTALCODE.ToNullInt(),
+                PREVID = r.PREVID.ToNullGuid(),
+                REGIONCODE = r.REGIONCODE,
+                ROOMCADNUM = r.ROOMCADNUM,
+                ROOMGUID = r.ROOMGUID,
+                ROOMID = r.ROOMID,
+                ROOMNUMBER = r.ROOMNUMBER,
+                ROOMTYPE = r.ROOMTYPE.ToNullInt(),
+                STARTDATE = r.STARTDATE,
+                UPDATEDATE = r.UPDATEDATE
+            };
+        }
     }
 }

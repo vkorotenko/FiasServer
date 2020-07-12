@@ -35,6 +35,7 @@ namespace Fias.Loader.EfMsSql
             Houses = new HouseRepository(_ctx);
             BuildNumbers= new BuildNumbersRepository(_ctx);
             HouseNumbers = new HouseNumbersRepository(_ctx);
+            Rooms = new RoomRepository(_ctx);
         }
 
         #region Словари
@@ -148,5 +149,9 @@ namespace Fias.Loader.EfMsSql
         /// Номера домов
         /// </summary>
         public IRepository<HouseNum, int> HouseNumbers { get; private set; }
+        /// <summary>
+        /// Комнаты
+        /// </summary>
+        public IRepository<Room, Guid> Rooms { get; private set; }
     }
 }

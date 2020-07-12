@@ -8,11 +8,11 @@
 
 #endregion
 
+using Fias.Loader.EfMsSql.Extensions;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Fias.Loader.EfMsSql.Entities;
-using Fias.Loader.EfMsSql.Extensions;
 using VKorotenko.FiasServer.Bl.Abstraction;
 using VKorotenko.FiasServer.Bl.Data;
 
@@ -48,7 +48,7 @@ namespace Fias.Loader.EfMsSql.Repositories
         {
             try
             {
-                _ctx.Houses.BulkMerge(items.Select(n => n.Get()), o => o.ColumnPrimaryKeyExpression = c => c.HOUSEID);
+                _ctx.Houses.BulkInsert(items.Select(n => n.Get()), o => o.ColumnPrimaryKeyExpression = c => c.HOUSEID);
             }
             catch (Exception e)
             {
@@ -86,7 +86,8 @@ namespace Fias.Loader.EfMsSql.Repositories
         /// </summary>
         public void Truncate()
         {
-            throw new NotImplementedException();
+            var truncate = "TRUNCATE TABLE HOUSE";
+            _ctx.Database.ExecuteSqlRaw(truncate);
         }
     }
 }

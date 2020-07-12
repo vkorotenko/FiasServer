@@ -50,7 +50,10 @@ namespace Fias.Tests
                 return _items.Where(query);
             }
 
-
+            public void Truncate()
+            {
+                throw new NotImplementedException();
+            }
         }
         [Fact]
         public void AddItemTest()

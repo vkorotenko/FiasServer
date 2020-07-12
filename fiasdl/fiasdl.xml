@@ -4,5 +4,56 @@
         <name>fiasdl</name>
     </assembly>
     <members>
+        <member name="T:FiasDl.DownloadHelper">
+            <summary>
+            Вспомогательный класс для закачки данных
+            </summary>
+        </member>
+        <member name="P:FiasDl.DownloadHelper.IsListVersions">
+            <summary>
+            Показать список версий
+            </summary>
+        </member>
+        <member name="P:FiasDl.DownloadHelper.IsXml">
+            <summary>
+            Скачивать XML версию
+            </summary>
+        </member>
+        <member name="P:FiasDl.DownloadHelper.Version">
+            <summary>
+            Версия файла
+            </summary>
+        </member>
+        <member name="P:FiasDl.DownloadHelper.VersionInfo">
+            <summary>
+            Список доступных версий
+            </summary>
+        </member>
+        <member name="P:FiasDl.DownloadHelper.BaseDir">
+            <summary>
+            Базовая директория для скачивания
+            </summary>
+        </member>
+        <member name="P:FiasDl.DownloadHelper.IsFull">
+            <summary>
+            Скачивать ли полную версию
+            </summary>
+        </member>
+        <member name="P:FiasDl.DownloadHelper.Config">
+            <summary>
+            Конфигурационный файл
+            </summary>
+        </member>
+        <member name="P:FiasDl.DownloadHelper.HasConfig">
+            <summary>
+            Есть ли конфигурационный файл
+            </summary>
+        </member>
+        <member name="M:FiasDl.DownloadHelper.Run">
+            <summary>
+            Запуск скачивания
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

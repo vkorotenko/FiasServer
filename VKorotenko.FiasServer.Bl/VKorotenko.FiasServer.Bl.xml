@@ -105,6 +105,11 @@
             Номера домов
             </summary>
         </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Abstraction.IDbBackend.Rooms">
+            <summary>
+            Репозиторий комнат
+            </summary>
+        </member>
         <member name="T:VKorotenko.FiasServer.Bl.Abstraction.IRepository`2">
             <summary>
             Интерфейс репозитория.
@@ -861,6 +866,237 @@
         <member name="F:VKorotenko.FiasServer.Bl.Data.NormativeDocumentTags.DOCIMGID">
             <summary>
             Идентификатор изображения DOCIMGID
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.Room">
+            <summary>
+            Комната
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.Room.#ctor">
+            <summary>
+            Дефолтный конструктор
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.Data.Room.#ctor(System.String)">
+            <summary>
+            Конструктор с параметрами
+            </summary>
+            <param name="xml">Десириализуемый</param>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.Room.Root">
+            <summary>
+            Корневой элемент в файле
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.Room.Start">
+            <summary>
+            Название файла в архиве
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.Room.Table">
+            <summary>
+            Таблица в БД
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.Room.ContainerTag">
+            <summary>
+            Тэг в документе
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.ROOMGUID">
+            <summary>
+            ROOMGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.FLATNUMBER">
+            <summary>
+            FLATNUMBER
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.FLATTYPE">
+            <summary>
+            FLATTYPE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.ROOMNUMBER">
+            <summary>
+            ROOMNUMBER
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.ROOMTYPE">
+            <summary>
+            ROOMTYPE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.REGIONCODE">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.POSTALCODE">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.HOUSEGUID">
+            <summary>
+            HOUSEGUID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.ROOMID">
+            <summary>
+            ROOMID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.PREVID">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.NEXTID">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.LIVESTATUS">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.OPERSTATUS">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.CADNUM">
+            <summary>
+            CADNUM
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.Data.Room.ROOMCADNUM">
+            <summary>
+            ROOMCADNUM
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.Data.RoomTags">
+            <summary>
+            Тэги для комнат
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.ROOMGUID">
+            <summary>
+            ROOMGUID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.FLATNUMBER">
+            <summary>
+            FLATNUMBER
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.FLATTYPE">
+            <summary>
+            FLATTYPE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.ROOMNUMBER">
+            <summary>
+            ROOMNUMBER
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.ROOMTYPE">
+            <summary>
+            ROOMTYPE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.REGIONCODE">
+            <summary>
+            REGIONCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.POSTALCODE">
+            <summary>
+            POSTALCODE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.UPDATEDATE">
+            <summary>
+            UPDATEDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.HOUSEGUID">
+            <summary>
+            HOUSEGUID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.ROOMID">
+            <summary>
+            ROOMID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.PREVID">
+            <summary>
+            PREVID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.NEXTID">
+            <summary>
+            NEXTID
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.STARTDATE">
+            <summary>
+            STARTDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.ENDDATE">
+            <summary>
+            ENDDATE
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.LIVESTATUS">
+            <summary>
+            LIVESTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.NORMDOC">
+            <summary>
+            NORMDOC
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.OPERSTATUS">
+            <summary>
+            OPERSTATUS
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.CADNUM">
+            <summary>
+            CADNUM
+            </summary>
+        </member>
+        <member name="F:VKorotenko.FiasServer.Bl.Data.RoomTags.ROOMCADNUM">
+            <summary>
+            ROOMCADNUM
             </summary>
         </member>
         <member name="T:VKorotenko.FiasServer.Bl.Data.Stead">
@@ -2484,6 +2720,85 @@
             </summary>
             <param name="a"></param>
             <returns></returns>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.RoomEventArgs">
+            <summary>
+            Аргументы для обработки комнаты
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.RoomEventArgs.#ctor(VKorotenko.FiasServer.Bl.Data.Room,System.Int64)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="item">Элемент</param>
+            <param name="count">Количество уже обработанных</param>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.RoomEventArgs.Item">
+            <summary>
+            Документ
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.RoomEventArgs.Count">
+            <summary>
+            Количество уже обработанных
+            </summary>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.RoomParsed">
+            <summary>
+            Делегат обработки комнаты
+            </summary>
+            <param name="sender">Отправитель</param>
+            <param name="args">Параметры</param>
+        </member>
+        <member name="T:VKorotenko.FiasServer.Bl.RoomProcessor">
+            <summary>
+            Обработчик для домов
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.RoomProcessor.NodeName">
+            <summary>
+            Имя обрабатываемого файла.
+            </summary>
+        </member>
+        <member name="P:VKorotenko.FiasServer.Bl.RoomProcessor.Count">
+            <summary>
+            Число обработанных элементов.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.RoomProcessor.#ctor(System.String)">
+            <summary>
+            процессор <see cref="T:VKorotenko.FiasServer.Bl.Data.House"/>
+            </summary>
+            <param name="pathToZip">Путь к файлу ФИАС</param>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.RoomProcessor.Run(System.Int64)">
+            <summary>
+            Запуск обработки файла
+            </summary>
+            <param name="take">Количество обрабатываемых записей</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.RoomProcessor.ItemParsed">
+            <summary>
+            Событие обработки Stead.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.RoomProcessor.OnItemParsed(System.Object,VKorotenko.FiasServer.Bl.Data.Room)">
+            <summary>
+            Обработчик добавления Stead.
+            </summary>
+            <param name="s">Отправитель</param>
+            <param name="item">Обработанный документ</param>
+        </member>
+        <member name="E:VKorotenko.FiasServer.Bl.RoomProcessor.Complete">
+            <summary>
+            Событие завершения обработки.
+            </summary>
+        </member>
+        <member name="M:VKorotenko.FiasServer.Bl.RoomProcessor.OnComplete(System.Object)">
+            <summary>
+            Обработчик конца обработки файла.
+            </summary>
+            <param name="s">Отправитель</param>
         </member>
         <member name="T:VKorotenko.FiasServer.Bl.SteadEventArgs">
             <summary>
