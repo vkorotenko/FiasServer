@@ -1,0 +1,554 @@
+[
+  {
+    "Id": 1,
+    "Name": "Адыгея",
+    "Prefix": "Респ.",
+    "Slug": "adygeya"
+  },
+  {
+    "Id": 2,
+    "Name": "Башкортостан",
+    "Prefix": "Респ.",
+    "Slug": "bashkortostan"
+  },
+  {
+    "Id": 3,
+    "Name": "Бурятия",
+    "Prefix": "Респ.",
+    "Slug": "buryatiya"
+  },
+  {
+    "Id": 4,
+    "Name": "Алтай",
+    "Prefix": "Респ.",
+    "Slug": "altaj"
+  },
+  {
+    "Id": 5,
+    "Name": "Дагестан",
+    "Prefix": "Респ.",
+    "Slug": "dagestan"
+  },
+  {
+    "Id": 6,
+    "Name": "Ингушетия",
+    "Prefix": "Респ.",
+    "Slug": "ingushetiya"
+  },
+  {
+    "Id": 7,
+    "Name": "Кабардино-Балкарская",
+    "Prefix": "Респ.",
+    "Slug": "kabardino-balkarskaya"
+  },
+  {
+    "Id": 8,
+    "Name": "Калмыкия",
+    "Prefix": "Респ.",
+    "Slug": "kalmykiya"
+  },
+  {
+    "Id": 9,
+    "Name": "Карачаево-Черкесская",
+    "Prefix": "Респ.",
+    "Slug": "karachaevo-cherkesskaya"
+  },
+  {
+    "Id": 10,
+    "Name": "Карелия",
+    "Prefix": "Респ.",
+    "Slug": "kareliya"
+  },
+  {
+    "Id": 11,
+    "Name": "Коми",
+    "Prefix": "Респ.",
+    "Slug": "komi"
+  },
+  {
+    "Id": 12,
+    "Name": "Марий Эл",
+    "Prefix": "Респ.",
+    "Slug": "marij_el"
+  },
+  {
+    "Id": 13,
+    "Name": "Мордовия",
+    "Prefix": "Респ.",
+    "Slug": "mordoviya"
+  },
+  {
+    "Id": 14,
+    "Name": "Саха /Якутия/",
+    "Prefix": "Респ.",
+    "Slug": "saxa_/yakutiya/"
+  },
+  {
+    "Id": 15,
+    "Name": "Северная Осетия - Алания",
+    "Prefix": "Респ.",
+    "Slug": "severnaya_osetiya_-_alaniya"
+  },
+  {
+    "Id": 16,
+    "Name": "Татарстан",
+    "Prefix": "Респ.",
+    "Slug": "tatarstan"
+  },
+  {
+    "Id": 17,
+    "Name": "Тыва",
+    "Prefix": "Респ.",
+    "Slug": "tyva"
+  },
+  {
+    "Id": 18,
+    "Name": "Удмуртская",
+    "Prefix": "Респ.",
+    "Slug": "udmurtskaya"
+  },
+  {
+    "Id": 19,
+    "Name": "Хакасия",
+    "Prefix": "Респ.",
+    "Slug": "xakasiya"
+  },
+  {
+    "Id": 20,
+    "Name": "Чеченская",
+    "Prefix": "Респ.",
+    "Slug": "chechenskaya"
+  },
+  {
+    "Id": 21,
+    "Name": "Чувашская Республика -",
+    "Prefix": "Чувашия.",
+    "Slug": "chuvashskaya_respublika_-"
+  },
+  {
+    "Id": 22,
+    "Name": "Алтайский",
+    "Prefix": "край.",
+    "Slug": "altajskij"
+  },
+  {
+    "Id": 23,
+    "Name": "Краснодарский",
+    "Prefix": "край.",
+    "Slug": "krasnodarskij"
+  },
+  {
+    "Id": 24,
+    "Name": "Красноярский",
+    "Prefix": "край.",
+    "Slug": "krasnoyarskij"
+  },
+  {
+    "Id": 25,
+    "Name": "Приморский",
+    "Prefix": "край.",
+    "Slug": "primorskij"
+  },
+  {
+    "Id": 26,
+    "Name": "Ставропольский",
+    "Prefix": "край.",
+    "Slug": "stavropolskij"
+  },
+  {
+    "Id": 27,
+    "Name": "Хабаровский",
+    "Prefix": "край.",
+    "Slug": "xabarovskij"
+  },
+  {
+    "Id": 28,
+    "Name": "Амурская",
+    "Prefix": "обл.",
+    "Slug": "amurskaya"
+  },
+  {
+    "Id": 29,
+    "Name": "Архангельская",
+    "Prefix": "обл.",
+    "Slug": "arxangelskaya"
+  },
+  {
+    "Id": 30,
+    "Name": "Астраханская",
+    "Prefix": "обл.",
+    "Slug": "astraxanskaya"
+  },
+  {
+    "Id": 31,
+    "Name": "Белгородская",
+    "Prefix": "обл.",
+    "Slug": "belgorodskaya"
+  },
+  {
+    "Id": 32,
+    "Name": "Брянская",
+    "Prefix": "обл.",
+    "Slug": "bryanskaya"
+  },
+  {
+    "Id": 33,
+    "Name": "Владимирская",
+    "Prefix": "обл.",
+    "Slug": "vladimirskaya"
+  },
+  {
+    "Id": 34,
+    "Name": "Волгоградская",
+    "Prefix": "обл.",
+    "Slug": "volgogradskaya"
+  },
+  {
+    "Id": 35,
+    "Name": "Вологодская",
+    "Prefix": "обл.",
+    "Slug": "vologodskaya"
+  },
+  {
+    "Id": 36,
+    "Name": "Воронежская",
+    "Prefix": "обл.",
+    "Slug": "voronezhskaya"
+  },
+  {
+    "Id": 37,
+    "Name": "Ивановская",
+    "Prefix": "обл.",
+    "Slug": "ivanovskaya"
+  },
+  {
+    "Id": 38,
+    "Name": "Иркутская",
+    "Prefix": "обл.",
+    "Slug": "irkutskaya"
+  },
+  {
+    "Id": 39,
+    "Name": "Калининградская",
+    "Prefix": "обл.",
+    "Slug": "kaliningradskaya"
+  },
+  {
+    "Id": 40,
+    "Name": "Калужская",
+    "Prefix": "обл.",
+    "Slug": "kaluzhskaya"
+  },
+  {
+    "Id": 41,
+    "Name": "Камчатский",
+    "Prefix": "край.",
+    "Slug": "kamchatskij"
+  },
+  {
+    "Id": 42,
+    "Name": "Кемеровская",
+    "Prefix": "обл.",
+    "Slug": "kemerovskaya"
+  },
+  {
+    "Id": 43,
+    "Name": "Кировская",
+    "Prefix": "обл.",
+    "Slug": "kirovskaya"
+  },
+  {
+    "Id": 44,
+    "Name": "Костромская",
+    "Prefix": "обл.",
+    "Slug": "kostromskaya"
+  },
+  {
+    "Id": 45,
+    "Name": "Курганская",
+    "Prefix": "обл.",
+    "Slug": "kurganskaya"
+  },
+  {
+    "Id": 46,
+    "Name": "Курская",
+    "Prefix": "обл.",
+    "Slug": "kurskaya"
+  },
+  {
+    "Id": 47,
+    "Name": "Ленинградская",
+    "Prefix": "обл.",
+    "Slug": "leningradskaya"
+  },
+  {
+    "Id": 48,
+    "Name": "Липецкая",
+    "Prefix": "обл.",
+    "Slug": "lipeczkaya"
+  },
+  {
+    "Id": 49,
+    "Name": "Магаданская",
+    "Prefix": "обл.",
+    "Slug": "magadanskaya"
+  },
+  {
+    "Id": 50,
+    "Name": "Московская",
+    "Prefix": "обл.",
+    "Slug": "moskovskaya"
+  },
+  {
+    "Id": 51,
+    "Name": "Мурманская",
+    "Prefix": "обл.",
+    "Slug": "murmanskaya"
+  },
+  {
+    "Id": 52,
+    "Name": "Нижегородская",
+    "Prefix": "обл.",
+    "Slug": "nizhegorodskaya"
+  },
+  {
+    "Id": 53,
+    "Name": "Новгородская",
+    "Prefix": "обл.",
+    "Slug": "novgorodskaya"
+  },
+  {
+    "Id": 54,
+    "Name": "Новосибирская",
+    "Prefix": "обл.",
+    "Slug": "novosibirskaya"
+  },
+  {
+    "Id": 55,
+    "Name": "Омская",
+    "Prefix": "обл.",
+    "Slug": "omskaya"
+  },
+  {
+    "Id": 56,
+    "Name": "Оренбургская",
+    "Prefix": "обл.",
+    "Slug": "orenburgskaya"
+  },
+  {
+    "Id": 57,
+    "Name": "Орловская",
+    "Prefix": "обл.",
+    "Slug": "orlovskaya"
+  },
+  {
+    "Id": 58,
+    "Name": "Пензенская",
+    "Prefix": "обл.",
+    "Slug": "penzenskaya"
+  },
+  {
+    "Id": 59,
+    "Name": "Пермский",
+    "Prefix": "край.",
+    "Slug": "permskij"
+  },
+  {
+    "Id": 60,
+    "Name": "Псковская",
+    "Prefix": "обл.",
+    "Slug": "pskovskaya"
+  },
+  {
+    "Id": 61,
+    "Name": "Ростовская",
+    "Prefix": "обл.",
+    "Slug": "rostovskaya"
+  },
+  {
+    "Id": 62,
+    "Name": "Рязанская",
+    "Prefix": "обл.",
+    "Slug": "ryazanskaya"
+  },
+  {
+    "Id": 63,
+    "Name": "Самарская",
+    "Prefix": "обл.",
+    "Slug": "samarskaya"
+  },
+  {
+    "Id": 64,
+    "Name": "Саратовская",
+    "Prefix": "обл.",
+    "Slug": "saratovskaya"
+  },
+  {
+    "Id": 65,
+    "Name": "Сахалинская",
+    "Prefix": "обл.",
+    "Slug": "saxalinskaya"
+  },
+  {
+    "Id": 66,
+    "Name": "Свердловская",
+    "Prefix": "обл.",
+    "Slug": "sverdlovskaya"
+  },
+  {
+    "Id": 67,
+    "Name": "Смоленская",
+    "Prefix": "обл.",
+    "Slug": "smolenskaya"
+  },
+  {
+    "Id": 68,
+    "Name": "Тамбовская",
+    "Prefix": "обл.",
+    "Slug": "tambovskaya"
+  },
+  {
+    "Id": 69,
+    "Name": "Тверская",
+    "Prefix": "обл.",
+    "Slug": "tverskaya"
+  },
+  {
+    "Id": 70,
+    "Name": "Томская",
+    "Prefix": "обл.",
+    "Slug": "tomskaya"
+  },
+  {
+    "Id": 71,
+    "Name": "Тульская",
+    "Prefix": "обл.",
+    "Slug": "tulskaya"
+  },
+  {
+    "Id": 72,
+    "Name": "Тюменская",
+    "Prefix": "обл.",
+    "Slug": "tyumenskaya"
+  },
+  {
+    "Id": 73,
+    "Name": "Ульяновская",
+    "Prefix": "обл.",
+    "Slug": "ulyanovskaya"
+  },
+  {
+    "Id": 74,
+    "Name": "Челябинская",
+    "Prefix": "обл.",
+    "Slug": "chelyabinskaya"
+  },
+  {
+    "Id": 75,
+    "Name": "Забайкальский",
+    "Prefix": "край.",
+    "Slug": "zabajkalskij"
+  },
+  {
+    "Id": 76,
+    "Name": "Ярославская",
+    "Prefix": "обл.",
+    "Slug": "yaroslavskaya"
+  },
+  {
+    "Id": 77,
+    "Name": "Москва",
+    "Prefix": "г.",
+    "Slug": "moskva"
+  },
+  {
+    "Id": 78,
+    "Name": "Санкт-Петербург",
+    "Prefix": "г.",
+    "Slug": "sankt-peterburg"
+  },
+  {
+    "Id": 79,
+    "Name": "Еврейская",
+    "Prefix": "Аобл.",
+    "Slug": "evrejskaya"
+  },
+  {
+    "Id": 80,
+    "Name": "Забайкальский край Агинский Бурятский",
+    "Prefix": "округ.",
+    "Slug": "zabajkalskij_kraj_aginskij_buryatskij"
+  },
+  {
+    "Id": 81,
+    "Name": "Коми-Пермяцкий",
+    "Prefix": "АО.",
+    "Slug": "komi-permyaczkij"
+  },
+  {
+    "Id": 82,
+    "Name": "Корякский",
+    "Prefix": "АО.",
+    "Slug": "koryakskij"
+  },
+  {
+    "Id": 83,
+    "Name": "Ненецкий",
+    "Prefix": "АО.",
+    "Slug": "neneczkij"
+  },
+  {
+    "Id": 84,
+    "Name": "Таймырский (Долгано-Ненецкий)",
+    "Prefix": "АО.",
+    "Slug": "tajmyrskij_(dolgano-neneczkij)"
+  },
+  {
+    "Id": 85,
+    "Name": "Иркутская обл Усть-Ордынский Бурятский",
+    "Prefix": "округ.",
+    "Slug": "irkutskaya_obl_ust-ordynskij_buryatskij"
+  },
+  {
+    "Id": 86,
+    "Name": "Ханты-Мансийский Автономный округ - Югра",
+    "Prefix": "АО.",
+    "Slug": "xanty-mansijskij_avtonomnyj_okrug_-_yugra"
+  },
+  {
+    "Id": 87,
+    "Name": "Чукотский",
+    "Prefix": "АО.",
+    "Slug": "chukotskij"
+  },
+  {
+    "Id": 88,
+    "Name": "Эвенкийский",
+    "Prefix": "АО.",
+    "Slug": "evenkijskij"
+  },
+  {
+    "Id": 89,
+    "Name": "Ямало-Ненецкий",
+    "Prefix": "АО.",
+    "Slug": "yamalo-neneczkij"
+  },
+  {
+    "Id": 91,
+    "Name": "Крым",
+    "Prefix": "Респ.",
+    "Slug": "krym"
+  },
+  {
+    "Id": 92,
+    "Name": "Севастополь",
+    "Prefix": "г.",
+    "Slug": "sevastopol"
+  },
+  {
+    "Id": 99,
+    "Name": "Байконур",
+    "Prefix": "г.",
+    "Slug": "bajkonur"
+  }
+]

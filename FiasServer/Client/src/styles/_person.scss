@@ -1,0 +1,25 @@
+.persons {
+    /*height: 100vh;*/
+    /*background-color: aliceblue;*/
+    padding-top: 4em;
+}
+
+.vh100 {
+    height: calc( 100vh - #{$footer-heigth} );
+}
+
+.uploader {
+    cursor: pointer !important;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.chooseFile {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    padding-left: 200px;
+    margin-right: -200px;
+}

@@ -1,0 +1,42 @@
+.footer {
+    min-height: 80px;
+    background-color: black;
+    color: whitesmoke;
+    font-size: 0.8em;
+    display: flex;
+
+    ul {
+        list-style: none;
+
+        li:first-child {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+
+    a, a:visited {
+        color: white;
+    }
+
+    a:hover {
+        color: whitesmoke;
+        text-decoration: underline;
+    }
+
+    .copyrigth-box {
+        text-align: right;
+        align-self: flex-end;
+    }
+}
+
+.twitter:hover{
+    color: #005fd1;    
+}
+
+.facebook:hover {
+    color: #3578E5;
+}
+
+.vk:hover {
+    color: #005fd1;
+}

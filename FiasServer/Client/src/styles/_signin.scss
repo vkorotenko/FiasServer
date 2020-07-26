@@ -1,0 +1,50 @@
+.signin-form {
+    border: solid 0.5px #c5c4d5;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 480px;
+    margin: 0 auto;
+}
+.si-nav{
+    margin-top: 1em;
+}
+
+.or-break {
+    border-bottom: 1px solid #e4e4e4;
+    color: #999;
+    font-size: 13px;
+    line-height: 0;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.or-break > span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+.si-shadow {
+    -webkit-box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+}
+
+.btn-facebook {    
+    color: #4267B2!important;
+    border-color: #4267B2!important;
+}
+.btn-facebook:hover {
+    color: white !important;    
+    background-color: #4267B2 !important;
+}
+.btn-google{
+    background-color: transparent !important;
+    border-color: transparent !important;
+    padding:0;
+}
+.btn-google:active {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+.validation-summary-errors ul {
+    list-style: none;
+}
