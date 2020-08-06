@@ -1,11 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+#region License
+// // Разработано: Коротенко Владимиром Николаевичем (Vladimir N. Korotenko)
+// // email: koroten@ya.ru
+// // skype:vladimir-korotenko
+// // https://vkorotenko.ru
+// // Создано:  27.07.2020 7:31
+#endregion
+
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace FiasServer
 {

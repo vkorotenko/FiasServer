@@ -1,8 +1,7 @@
 <template>
   <div id='app'>
-
     <nav class='navbar is-fixed-top has-shadow'>
-      <div class="container">
+      <div class='container'>
         <div class='navbar-brand'>
           <router-link to='/' class='navbar-item'>
             <img class='image' src='./assets/logo.png' />
@@ -16,37 +15,21 @@
         </div>
         <div id='navbarExample' class='navbar-menu'>
           <div class='navbar-start'>
-            <router-link to='/' class='navbar-item'>
-              Поиск
-            </router-link>
-            <a href="/swagger" class="navbar-item">
-              API
-            </a>
-            <router-link to='/about' class='navbar-item'>
-              О программе
-            </router-link>
-            <router-link v-if='showAdminBoard' to='/admin' class='navbar-item'>Admin Board</router-link>
-            <router-link to='/mod' v-if='showModeratorBoard' class='navbar-item'>Moderator Board</router-link>
-            <router-link v-if='currentUser' to='/user' class='navbar-item'>User</router-link>
+            <router-link to='/' class='navbar-item'>Поиск</router-link>
+            <a href='/swagger' class='navbar-item'>API</a>
+            <router-link to='/about' class='navbar-item'>О программе</router-link>
+            <router-link v-if='showAdminBoard' to='/admin' class='navbar-item'>Администрирование</router-link>
           </div>
           <div class='navbar-end'>
             <template v-if='!currentUser'>
-              <router-link to='/register' class='navbar-item'>
-                <font-awesome-icon icon='user-plus' />Sign Up
-              </router-link>
-
-              <router-link to='/login' class='navbar-item'>
-                <font-awesome-icon icon='sign-in-alt' />Login
-              </router-link>
+              <a class='navbar-item' @click='login' v-if='!isLoggedIn'> Вход </a>
             </template>
             <template v-if='currentUser'>
               <router-link to='/profile' class='navbar-item'>
-                <font-awesome-icon icon='user' />
-                {{ currentUser.username }}
+                <font-awesome-icon icon='user' /> {{ currentUser }}
               </router-link>
-
-              <a class='navbar-item' href @click.prevent='logOut'>
-                <font-awesome-icon icon='sign-out-alt' />LogOut
+              <a class='navbar-item' href @click.prevent='logout'>
+                <font-awesome-icon icon='sign-out-alt' /> Выход
               </a>
             </template>
           </div>
@@ -59,37 +42,54 @@
   </div>
 </template>
 
-<script>
-export default {
-  computed: {
-    currentUser () {
-      return this.$store.state.auth.user
-    },
-    showAdminBoard () {
-      if (this.currentUser && this.currentUser.roles) {
-        return this.currentUser.roles.includes('ROLE_ADMIN')
-      }
-
-      return false
-    },
-    showModeratorBoard () {
-      if (this.currentUser && this.currentUser.roles) {
-        return this.currentUser.roles.includes('ROLE_MODERATOR')
-      }
-
-      return false
+<script lang='ts'>
+import { Component, Vue } from 'vue-property-decorator'
+import AuthService from './services/auth.service'
+const auth = new AuthService()
+@Component({})
+export default class App extends Vue {
+  get username (): string {
+    if (this.currentUser !== undefined) {
+      return this.currentUser
+    } else {
+      return ''
     }
-  },
-  methods: {
-    logOut () {
-      this.$store.dispatch('auth/logout')
-      this.$router.push('/login')
+  }
+
+  public currentUser: string | undefined = '';
+  public accessTokenExpired: boolean | undefined = false;
+  public isLoggedIn = false;
+  public login () {
+    auth.login()
+  }
+
+  public logout () {
+    auth.logout()
+  }
+
+  get showAdminBoard () {
+    const user = this.$store.state.auth.user
+    window.console.log(user)
+    if (user !== null && user.profile.role === 'Administrator') {
+      return true
     }
+    return false
+  }
+
+  public mounted () {
+    auth.getUser().then((user) => {
+      if (user !== null) {
+        this.$store.state.auth.user = user
+        this.currentUser = user.profile.name
+        this.accessTokenExpired = user.expired
+      }
+      this.isLoggedIn = user !== null && !user.expired
+    })
   }
 }
 </script>
 <style scoped>
-.main-ctx{
+.main-ctx {
   margin-top: 80px;
 }
 </style>

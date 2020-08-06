@@ -1,3 +1,4 @@
+import { User } from 'oidc-client'
 const stUser = localStorage.getItem('user')
 const user = stUser === null ? null : JSON.parse(stUser)
 const initialState = user
@@ -9,7 +10,7 @@ export const auth = {
   state: initialState,
   actions: {},
   mutations: {
-    loginSuccess (state: { status: { loggedIn: boolean }; user: any }, logUser: any) {
+    loginSuccess (state: { status: { loggedIn: boolean }; user: User | null }, logUser: User | null) {
       state.status.loggedIn = true
       state.user = logUser
     },

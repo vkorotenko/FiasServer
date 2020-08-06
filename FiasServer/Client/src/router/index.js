@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '../views/Home.vue';
-import Login from '../views/Login.vue';
-import Register from '../views/Register.vue';
 import AuthService from '../services/auth.service';
 Vue.use(Router);
 const router = new Router({
@@ -12,14 +10,6 @@ const router = new Router({
             path: '/',
             name: 'home',
             component: Home
-        },
-        {
-            path: '/login',
-            component: Login
-        },
-        {
-            path: '/register',
-            component: Register
         },
         {
             path: '/profile',
@@ -34,29 +24,26 @@ const router = new Router({
             path: '/admin',
             name: 'admin',
             // lazy-loaded
-            component: () => import(/* webpackChunkName: "admin" */ '../views/BoardAdmin.vue')
-        },
-        {
-            path: '/user',
-            name: 'user',
-            // lazy-loaded
-            component: () => import(/* webpackChunkName: "user" */ '../views/BoardUser.vue')
+            component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),
+            meta: {
+                isSecure: true
+            }
         },
         {
             path: '/about',
             name: 'about',
-            meta: {
-                requiresAuth: true
-            },
             // lazy-loaded
             component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
         },
-        { path: '/api/address' },
-        { path: '/authorize' },
         {
             path: '/authentication/login-callback',
             name: 'logincallback',
-            component: () => import(/* webpackChunkName: "logincallback" */ '../views/LoginCallBack.vue')
+            component: () => import(/* webpackChunkName: "login" */ '../views/LoginCallBack.vue')
+        },
+        {
+            path: '/authentication/logout-callback',
+            name: 'logoutcallback',
+            component: () => import(/* webpackChunkName: "logout" */ '../views/LogOut.vue')
         }
     ]
 });
@@ -70,6 +57,7 @@ router.beforeEach((to, from, next) => {
                 next();
             }
             else {
+                window.console.log('login required');
                 next({
                     path: '/',
                     query: { redirect: to.fullPath }

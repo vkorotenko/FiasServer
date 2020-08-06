@@ -1,6 +1,6 @@
 {
   "iisSettings": {
-    "windowsAuthentication": false,
+    "windowsAuthentication": true,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:20530",
@@ -12,12 +12,15 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "VAR_D": "Development",
+        "WAR_P": "Production"
       }
     },
     "FiasServer": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "https://localhost:44385/Identity/Account/Login",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       },

@@ -13,7 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dictionary\" />
+    <Compile Remove="Dictionary\**" />
+    <EmbeddedResource Remove="Dictionary\**" />
+    <None Remove="Dictionary\**" />
   </ItemGroup>
 
 </Project>

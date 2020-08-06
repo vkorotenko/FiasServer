@@ -51,7 +51,6 @@ export class AutoComplite {
         this.autocompleteResult = document.getElementById('autocomplete_result');
         this.resultDiv = document.getElementById('autocomplete_container');
         if (this.autocomplete !== null) {
-            window.console.log('autocomplete');
             this.autocomplete.addEventListener('keyup', this.updPopup);
             this.autocomplete.addEventListener('change', this.updPopup);
             this.autocomplete.addEventListener('focus', this.updPopup);

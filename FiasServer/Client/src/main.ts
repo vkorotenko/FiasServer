@@ -28,13 +28,8 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 document.addEventListener('DOMContentLoaded', () => {
   const hamburger = new HamburgerButton()
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   const auto = new AutoComplite()
-  interface ExWindow extends Window {
-    autoComplite: any;
-   }
-  const exw = window as unknown as ExWindow
-  // exw.autoComplite = auto.autocomplete
-  // console.log(exw.autoComplite)
   hamburger.init()
   NProgress.configure({ showSpinner: false })
 })

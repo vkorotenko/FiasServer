@@ -1,23 +1,23 @@
 <template>
-  <div>login</div>
+  <div></div>
 </template>
 <script lang='ts'>
-window.document.title = 'Waiting...';
-import { UserManager, WebStorageStateStore } from 'oidc-client';
+import { UserManager, WebStorageStateStore } from 'oidc-client'
+window.document.title = 'Waiting...'
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const mgr = new UserManager({
-  // response_mode: 'query',
-  userStore: new WebStorageStateStore({ store: window.localStorage }),
+  userStore: new WebStorageStateStore({ store: window.localStorage })
 })
   .signinRedirectCallback()
   .then(function (user) {
-    console.log('signin response success', user);
-    window.location.href = '/';
+    console.log('signin response success', user)
+    window.location.href = '/'
   })
   .catch(function (err) {
-    console.log(err);
-  });
+    console.log(err)
+  })
 
 export default {
-  name: 'LoginCallBack.vue',
-};
+  name: 'LoginCallBack.vue'
+}
 </script>

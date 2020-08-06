@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using FiasServer.Models;
+using IdentityModel;
+using IdentityServer4;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
@@ -59,8 +64,12 @@ namespace FiasServer.Areas.Identity.Pages.Account
             return RedirectToPage("./Login");
         }
 
-        public IActionResult OnPost(string provider, string returnUrl = null)
+        public async Task<IActionResult> OnPost(string provider, string returnUrl = null)
         {
+            if (IISDefaults.AuthenticationScheme == provider)
+            {
+                return await ProcessWindowsLoginAsync(returnUrl);
+            }
             // Request a redirect to the external login provider.
             var redirectUrl = Url.Page("./ExternalLogin", pageHandler: "Callback", values: new { returnUrl });
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
@@ -87,6 +96,8 @@ namespace FiasServer.Areas.Identity.Pages.Account
             if (result.Succeeded)
             {
                 _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
+                var user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
+                await UpdateClaims(info, user, "hasUsersGroup");//Сюда
                 return LocalRedirect(returnUrl);
             }
             if (result.IsLockedOut)
@@ -108,9 +119,59 @@ namespace FiasServer.Areas.Identity.Pages.Account
                 return Page();
             }
         }
+        private async Task<IActionResult> ChallengeWindowsAsync(string returnUrl)
+        {
+            // see if windows auth has already been requested and succeeded
+            var result = await HttpContext.AuthenticateAsync("Windows");
+            if (result?.Principal is WindowsPrincipal wp)
+            {
+                // we will issue the external cookie and then redirect the
+                // user back to the external callback, in essence, treating windows
+                // auth the same as any other external authentication mechanism
+                var props = new AuthenticationProperties()
+                {
+                    RedirectUri = Url.Page("./ExternalLogin", "Callback"),
+                    Items =
+                    {
+                        { "returnUrl", returnUrl },
+                        { "scheme", "Windows" },
+                    }
+                };
 
+                var id = new ClaimsIdentity("Windows");
+
+                // the sid is a good sub value
+                id.AddClaim(new Claim(JwtClaimTypes.Subject, wp.FindFirst(ClaimTypes.PrimarySid).Value));
+
+                // the account name is the closest we have to a display name
+                id.AddClaim(new Claim(JwtClaimTypes.Name, wp.Identity.Name));
+
+                // add the groups as claims -- be careful if the number of groups is too large
+                var wi = wp.Identity as WindowsIdentity;
+
+                // translate group SIDs to display names
+                var groups = wi.Groups.Translate(typeof(NTAccount));
+                var roles = groups.Select(x => new Claim(JwtClaimTypes.Role, x.Value));
+                id.AddClaims(roles);
+
+
+                await HttpContext.SignInAsync(
+                    IdentityServerConstants.ExternalCookieAuthenticationScheme,
+                    new ClaimsPrincipal(id),
+                    props);
+                return Redirect(props.RedirectUri);
+            }
+            else
+            {
+                // trigger windows auth
+                // since windows auth don't support the redirect uri,
+                // this URL is re-triggered when we call challenge
+                return Challenge("Windows");
+            }
+        }
         public async Task<IActionResult> OnPostConfirmationAsync(string returnUrl = null)
         {
+            
             returnUrl = returnUrl ?? Url.Content("~/");
             // Get the information about the user from the external login provider
             var info = await _signInManager.GetExternalLoginInfoAsync();
@@ -131,7 +192,7 @@ namespace FiasServer.Areas.Identity.Pages.Account
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
-
+                        await UpdateClaims(info, user, "hasUsersGroup");//Сюда
                         var userId = await _userManager.GetUserIdAsync(user);
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -164,6 +225,57 @@ namespace FiasServer.Areas.Identity.Pages.Account
             ProviderDisplayName = info.ProviderDisplayName;
             ReturnUrl = returnUrl;
             return Page();
+        }
+        private async Task<IActionResult> ProcessWindowsLoginAsync(string returnUrl)
+        {
+            var result = await HttpContext.AuthenticateAsync(IISDefaults.AuthenticationScheme);
+            if (result?.Principal is WindowsPrincipal wp)
+            {
+                var redirectUrl = Url.Page("./ExternalLogin", pageHandler: "Callback", values: new { returnUrl });
+
+                var props = _signInManager.ConfigureExternalAuthenticationProperties(IISDefaults.AuthenticationScheme, redirectUrl);
+                props.Items["scheme"] = IISDefaults.AuthenticationScheme;
+
+                var id = new ClaimsIdentity(IISDefaults.AuthenticationScheme);
+                id.AddClaim(new Claim(JwtClaimTypes.Subject, wp.Identity.Name));
+                id.AddClaim(new Claim(JwtClaimTypes.Name, wp.Identity.Name));
+                id.AddClaim(new Claim(ClaimTypes.NameIdentifier, wp.Identity.Name));
+
+                var wi = wp.Identity as WindowsIdentity;
+                var groups = wi.Groups.Translate(typeof(NTAccount));
+                var hasUsersGroup = groups.Any(i => i.Value.Contains(@"BUILTIN\Users", StringComparison.OrdinalIgnoreCase));
+
+                id.AddClaim(new Claim("hasUsersGroup", hasUsersGroup.ToString()));
+                if(hasUsersGroup) id.AddClaim(new Claim("role",value:"user"));
+
+                await HttpContext.SignInAsync(IdentityConstants.ExternalScheme, new ClaimsPrincipal(id), props);
+
+                return Redirect(props.RedirectUri);
+            }
+
+            return Challenge(IISDefaults.AuthenticationScheme);
+        }
+        private async Task UpdateClaims(ExternalLoginInfo info, ApplicationUser user, params string[] claimTypes)
+        {
+            if (claimTypes == null)
+            {
+                return;
+            }
+
+            var claimTypesHash = new HashSet<string>(claimTypes);
+
+            var claims = (await _userManager.GetClaimsAsync(user)).Where(c => claimTypesHash.Contains(c.Type)).ToList();
+
+            await _userManager.RemoveClaimsAsync(user, claims);
+
+            foreach (var claimType in claimTypes)
+            {
+                if (info.Principal.HasClaim(c => c.Type == claimType))
+                {
+                    claims = info.Principal.FindAll(claimType).ToList();
+                    await _userManager.AddClaimsAsync(user, claims);
+                }
+            }
         }
     }
 }

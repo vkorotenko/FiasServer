@@ -5,12 +5,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
 //  outputDir: 'wwwroot',
   filenameHashing: false,
-  // productionSourceMap: false,
+  productionSourceMap: true,
   configureWebpack: {
     plugins: [
       new CopyWebpackPlugin([
         { from: 'node_modules/oidc-client/dist/oidc-client.min.js', to: 'js' },
-        { from: 'public/callback.html', to: '' },
         { from: 'public/silent-renew.html', to: '' },
         { from: 'public/favicon.ico', to: '' }
       ])

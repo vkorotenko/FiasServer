@@ -1,4 +1,8 @@
 import axios from 'axios';
+import store from '../store';
+const st = store.state;
+const token = st.auth.user.access_token;
+axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 const API_URL = 'https://localhost:44385/api/test/';
 class UserService {
     getPublicContent() {
